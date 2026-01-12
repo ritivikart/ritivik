@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RITIVIK | Graphic Designer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#F59E0B', // Amber 500
+                        dark: {
+                            bg: '#0f172a', // Slate 900
+                            surface: '#1e293b', // Slate 800
+                        },
+                        light: {
+                            bg: '#f8fafc', // Slate 50
+                            surface: '#ffffff', 
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; }
+        .dark ::-webkit-scrollbar-thumb { background-color: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #F59E0B; }
+
+        /* Typing Cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+            color: #F59E0B;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Premium Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Glass Card Utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.4); /* Slate 800 with opacity */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Smooth transitions for theme switch */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-light-bg text-gray-900 dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300 selection:bg-primary selection:text-white relative">
+
+    <!-- Ambient Background Blobs (Fixed) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 dark:bg-yellow-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <!-- Overlay mesh -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-50"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/50 dark:border-white/10 group-hover:border-primary transition-all duration-300 shadow-md">
+                    <img src="proj_0.png" alt="Profile" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop'">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-tight leading-none uppercase">Ritivik</span>
+                    <span class="text-[10px] tracking-[0.2em] text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Designer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide uppercase">
+                <a href="#home" class="hover:text-primary transition-colors relative group py-2">
+                    Home
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#work" class="hover:text-primary transition-colors relative group py-2">
+                    Work
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="hover:text-primary transition-colors relative group py-2">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="hover:text-primary transition-colors relative group py-2">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                
+                <!-- Theme Toggle -->
+                <div class="relative ml-4">
+                    <button id="theme-btn" class="p-2 rounded-full bg-white/20 dark:bg-black/20 hover:bg-white/40 dark:hover:bg-white/10 backdrop-blur-sm transition-all border border-white/20 shadow-sm focus:outline-none" aria-label="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden text-slate-700"></i>
+                    </button>
+                    <!-- Dropdown for System Mode -->
+                    <div id="theme-menu" class="hidden absolute right-0 mt-2 w-36 glass-card rounded-xl py-1 text-xs font-medium z-50 overflow-hidden transform origin-top-right transition-all">
+                        <button onclick="setTheme('light')" class="w-full text-left px-4 py-3 hover:bg-white/50 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
+                            <i data-lucide="sun" class="w-3 h-3"></i> Light
+                        </button>
+                        <button onclick="setTheme('dark')" class="w-full text-left px-4 py-3 hover:bg-white/50 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
+                            <i data-lucide="moon" class="w-3 h-3"></i> Dark
+                        </button>
+                        <button onclick="setTheme('system')" class="w-full text-left px-4 py-3 hover:bg-white/50 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
+                            <i data-lucide="monitor" class="w-3 h-3"></i> System
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay (Glassy) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex items-center justify-center">
+        <button class="absolute top-6 right-6 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors" onclick="toggleMobileMenu()">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="flex flex-col items-center gap-8 text-2xl font-light">
+            <a href="#home" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">Home</a>
+            <a href="#work" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">Work</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">About</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">Contact</a>
+            <div class="flex gap-4 mt-8">
+                <button onclick="setTheme('light')" class="p-4 rounded-full glass-card hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="sun" class="w-6 h-6"></i></button>
+                <button onclick="setTheme('dark')" class="p-4 rounded-full glass-card hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="moon" class="w-6 h-6"></i></button>
+                <button onclick="setTheme('system')" class="p-4 rounded-full glass-card hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="monitor" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="order-2 md:order-1 space-y-8 animate-slide-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-primary text-xs font-bold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Available for hire
+                </div>
+                
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tight leading-tight drop-shadow-sm">
+                    Crafting Digital <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-600">Masterpieces</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 dark:text-gray-300 font-light h-8">
+                    I specialize in <span id="typing-text" class="text-gray-900 dark:text-white font-medium typing-cursor"></span>
+                </p>
+                
+                <div class="flex gap-4 pt-6">
+                    <a href="#work" class="px-8 py-3.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold tracking-wide rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-8 py-3.5 glass-card text-sm font-semibold tracking-wide rounded-lg hover:bg-white/60 dark:hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Minimal Hero Visual -->
+            <div class="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 group">
+                    <!-- Glassy circle behind -->
+                    <div class="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full border border-white/20 animate-[spin_12s_linear_infinite]"></div>
+                    <div class="absolute inset-8 border border-white/30 dark:border-white/10 rounded-full"></div>
+                    <!-- Image with glass effect container -->
+                    <div class="absolute inset-0 rounded-full p-6 transition-all duration-700">
+                        <img src="proj_0.png" alt="Hero" class="w-full h-full object-cover rounded-full shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700 border-4 border-white/20" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400">
+            <i data-lucide="arrow-down" class="w-6 h-6"></i>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <div>
+                    <h2 class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-2">Portfolio</h2>
+                    <h3 class="text-3xl md:text-5xl font-serif italic text-gray-900 dark:text-white drop-shadow-sm">Selected Works</h3>
+                </div>
+                <!-- Glassy Filters -->
+                <div class="flex gap-2 p-1 rounded-full glass-card">
+                    <button class="px-5 py-2 text-xs font-medium rounded-full bg-gray-900 text-white dark:bg-white dark:text-black shadow-md transition-all">All</button>
+                    <button class="px-5 py-2 text-xs font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Design</button>
+                    <button class="px-5 py-2 text-xs font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Web</button>
+                </div>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Branding</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Minimalist Logos</h4>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Print</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Event Posters</h4>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1623039405147-547794f92e9e?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Marketing</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Social Campaigns</h4>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Illustration</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Digital Art</h4>
+                    </div>
+                </div>
+                
+                 <!-- Card 5 -->
+                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">UI/UX</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Ecommerce Web</h4>
+                    </div>
+                </div>
+
+                 <!-- Card 6 -->
+                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Packaging</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Product Box</h4>
+                    </div>
+                </div>
+
+                 <!-- Card 7 -->
+                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Stationery</span>
+                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Brand Kits</h4>
+                    </div>
+                </div>
+
+                <!-- QR Card -->
+                <a href="https://drive.google.com/drive/folders/1Ytya_Zx43alhJpllv-MUjM9GBDPetQ6X?usp=sharing" target="_blank" class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center h-full border-dashed border-2 border-primary/30 hover:border-primary">
+                    <div class="w-20 h-20 bg-white rounded-xl p-1 mb-4 shadow-inner">
+                        <img src="QRPROJ.png" alt="QR" class="w-full h-full object-contain" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/drive/folders/1Ytya_Zx43alhJpllv-MUjM9GBDPetQ6X'">
+                    </div>
+                    <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Archives</span>
+                    <h4 class="text-sm font-semibold mt-1 group-hover:text-primary transition-colors">Full Drive Access &rarr;</h4>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Skills Section -->
+    <section id="about" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
+            <!-- Skills -->
+            <div class="glass-card p-10 rounded-3xl">
+                <h3 class="text-3xl font-serif italic mb-10">Capabilities</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
+                            <span>Graphic Design</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[95%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
+                            <span>UI/UX Design</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[80%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
+                            <span>Video Editing</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[70%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mt-12">
+                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Adobe Photoshop</span>
+                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Illustrator</span>
+                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Figma</span>
+                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Premiere Pro</span>
+                </div>
+            </div>
+
+            <!-- Resume/Timeline -->
+            <div>
+                <h3 class="text-3xl font-serif italic mb-10 pl-4">Journey</h3>
+                <div class="relative border-l border-gray-300 dark:border-gray-700 space-y-12 pl-10 ml-4">
+                    <div class="relative group">
+                        <span class="absolute -left-[45px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-800 bg-gray-300 dark:bg-gray-600 group-hover:bg-primary group-hover:scale-125 transition-all shadow-md"></span>
+                        <span class="text-xs text-primary font-bold tracking-widest uppercase mb-1 block">2024 — 2028</span>
+                        <h4 class="text-xl font-bold">B.Tech in Computer Science</h4>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Bihar University of Technology. Focusing on Human-Computer Interaction and modern web technologies.</p>
+                    </div>
+                    <div class="relative group">
+                        <span class="absolute -left-[45px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-800 bg-gray-300 dark:bg-gray-600 group-hover:bg-primary group-hover:scale-125 transition-all shadow-md"></span>
+                        <span class="text-xs text-primary font-bold tracking-widest uppercase mb-1 block">2021 — 2023</span>
+                        <h4 class="text-xl font-bold">Higher Secondary</h4>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">BSEB • First Class Distinction. Developed a strong foundation in visual arts and logic.</p>
+                    </div>
+                    <div class="relative group">
+                        <span class="absolute -left-[45px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-800 bg-gray-300 dark:bg-gray-600 group-hover:bg-primary group-hover:scale-125 transition-all shadow-md"></span>
+                        <span class="text-xs text-primary font-bold tracking-widest uppercase mb-1 block">2023 — Present</span>
+                        <h4 class="text-xl font-bold">Freelance Designer</h4>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Collaborating with global clients to deliver impactful branding and digital solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+            
+            <!-- Contact Info Sidebar -->
+            <div class="md:w-2/5 bg-gray-900/95 dark:bg-black/60 text-white p-12 flex flex-col justify-between relative overflow-hidden backdrop-blur-xl">
+                <!-- Decorative Blur -->
+                <div class="absolute top-0 right-0 w-40 h-40 bg-primary/30 rounded-full blur-3xl -mr-10 -mt-10 animate-pulse"></div>
+                <div class="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl -ml-10 -mb-10"></div>
+                
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-bold mb-8 font-serif">Let's talk</h3>
+                    <div class="space-y-8 text-sm text-gray-300">
+                        <a href="mailto:ritivik.org@gmail.com" class="flex items-center gap-4 hover:text-primary transition-colors group">
+                            <div class="p-2 rounded-lg bg-white/10 group-hover:bg-primary group-hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                             ritivik.org@gmail.com
+                        </a>
+                        <a href="tel:7061978295" class="flex items-center gap-4 hover:text-primary transition-colors group">
+                             <div class="p-2 rounded-lg bg-white/10 group-hover:bg-primary group-hover:text-white transition-colors"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                             +91 7061978295
+                        </a>
+                        <div class="flex items-center gap-4 group">
+                             <div class="p-2 rounded-lg bg-white/10"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                             Patna, India
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-4 mt-12 md:mt-0 relative z-10">
+                    <a href="#" class="p-3 bg-white/10 rounded-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="p-3 bg-white/10 rounded-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="p-3 bg-white/10 rounded-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="md:w-3/5 p-12 bg-white/40 dark:bg-white/5 backdrop-blur-md">
+                <form id="inquiry-form" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="relative group">
+                            <input type="text" name="Name" id="name" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm placeholder-transparent" placeholder="Name">
+                            <label for="name" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary">Your Name</label>
+                        </div>
+                        <div class="relative group">
+                            <input type="email" name="Email" id="email" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm placeholder-transparent" placeholder="Email">
+                            <label for="email" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary">Email Address</label>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <input type="text" name="Subject" id="subject" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm placeholder-transparent" placeholder="Subject">
+                        <label for="subject" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary">Subject</label>
+                    </div>
+                    <div class="relative group pt-4">
+                        <textarea name="Message" id="message" rows="3" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm resize-none placeholder-transparent" placeholder="Message"></textarea>
+                        <label for="message" class="absolute left-0 -top-1.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-focus:-top-1.5 peer-focus:text-xs peer-focus:text-primary">Your Message</label>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6">
+                        <button type="submit" id="submit-btn" class="px-10 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl text-sm font-bold tracking-widest uppercase hover:shadow-xl hover:-translate-y-1 transform active:scale-95 transition-all">
+                            Send Message
+                        </button>
+                        <div id="form-message" class="hidden text-xs text-primary font-medium uppercase tracking-wide"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="py-8 text-center text-xs text-gray-500 border-t border-gray-200 dark:border-gray-800 glass">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Ritivik Kumar. Crafted with intent.</p>
+    </footer>
+
+    <script>
+        // --- Icon Initialization ---
+        lucide.createIcons();
+
+        // --- Theme Engine ---
+        const themeBtn = document.getElementById('theme-btn');
+        const themeMenu = document.getElementById('theme-menu');
+        
+        // Toggle Dropdown
+        themeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themeMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            themeMenu.classList.add('hidden');
+        });
+
+        function setTheme(theme) {
+            const html = document.documentElement;
+            
+            if (theme === 'system') {
+                localStorage.removeItem('theme');
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    html.classList.add('dark');
+                } else {
+                    html.classList.remove('dark');
+                }
+            } else {
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark') {
+                    html.classList.add('dark');
+                } else {
+                    html.classList.remove('dark');
+                }
+            }
+            themeMenu.classList.add('hidden');
+        }
+
+        // Initialize Theme
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && systemTheme)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+
+        // --- Typing Animation ---
+        const typeText = document.getElementById('typing-text');
+        const phrases = ["Brand Identity", "User Interfaces", "Visual Systems", "Motion Graphics"];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        
+        function type() {
+            const current = phrases[phraseIdx];
+            if (isDeleting) {
+                typeText.textContent = current.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typeText.textContent = current.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let speed = 100;
+            if (isDeleting) speed = 50;
+            if (!isDeleting && charIdx === current.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                speed = 500;
+            }
+            setTimeout(type, speed);
+        }
+        type();
+
+        // --- Mobile Menu ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = !menu.classList.contains('translate-x-full');
+            
+            if (isOpen) {
+                menu.classList.add('translate-x-full');
+            } else {
+                menu.classList.remove('translate-x-full');
+            }
+        }
+
+        // --- Navbar Scroll Logic ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                // Increase opacity on scroll for better text legibility
+                if(document.documentElement.classList.contains('dark')) {
+                    nav.style.background = 'rgba(15, 23, 42, 0.85)';
+                } else {
+                    nav.style.background = 'rgba(255, 255, 255, 0.75)';
+                }
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.style.background = '';
+            }
+        });
+
+        // --- Form Submission ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzF-hG9jUUP-_ze9Q2_ONHpohiCEhW5v6KK7PvWAMPivl2g49L9tTonc6OIjNV2X3hO/exec';
+        const form = document.getElementById('inquiry-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMsg = document.getElementById('form-message');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            const formData = new URLSearchParams();
+            formData.append('Date', new Date().toLocaleDateString());
+            formData.append('Time', new Date().toLocaleTimeString());
+            formData.append('Name', form.elements['Name'].value);
+            formData.append('Email', form.elements['Email'].value);
+            formData.append('Subject', form.elements['Subject'].value);
+            formData.append('Message', form.elements['Message'].value);
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: formData,
+                headers: { "Content-Type": "application/x-www-form-urlencoded" }
+            })
+            .then(response => {
+                formMsg.textContent = 'Message sent.';
+                formMsg.classList.remove('hidden', 'text-red-500');
+                formMsg.classList.add('text-green-600');
+                form.reset();
+            })
+            .catch(error => {
+                formMsg.textContent = 'Error sending message.';
+                formMsg.classList.remove('hidden', 'text-green-600');
+                formMsg.classList.add('text-red-500');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message';
+                setTimeout(() => formMsg.classList.add('hidden'), 5000);
+            });
+        });
+    </script>
+</body>
+</html>
