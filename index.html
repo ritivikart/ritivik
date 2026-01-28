@@ -3,18 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RITIVIK | Graphic Designer</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Ritivik Kumar | Professional Graphic Designer & Visual Strategist</title>
+    <meta name="description" content="Ritivik Kumar - Professional graphic designer specializing in brand identity, UI/UX design, and visual storytelling. Based in Patna, India with global clientele.">
+    <meta name="keywords" content="graphic designer, brand identity, UI/UX design, visual designer, creative director, Patna designer, digital design">
+    <meta name="author" content="Ritivik Kumar">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Ritivik Kumar | Graphic Designer & Visual Strategist">
+    <meta property="og:description" content="Professional graphic designer specializing in brand identity and digital experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ritivik.design">
+    <meta property="og:image" content="https://ritivik.design/images/og-image.jpg">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ritivik Kumar",
+        "jobTitle": "Graphic Designer & Visual Strategist",
+        "url": "https://ritivik.design",
+        "email": "ritivik.org@gmail.com",
+        "telephone": "+91-7061978295",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Patna",
+            "addressRegion": "Bihar",
+            "addressCountry": "India"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Bihar University of Technology"
+        },
+        "knowsAbout": ["Graphic Design", "Brand Identity", "UI/UX Design", "Visual Communication"],
+        "sameAs": [
+            "https://linkedin.com/in/ritivik",
+            "https://behance.net/ritivik",
+            "https://instagram.com/ritivik.design"
+        ]
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Chivo:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         tailwind.config = {
@@ -22,24 +72,41 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
+                        accent: ['Chivo', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#F59E0B', // Amber 500
-                        dark: {
-                            bg: '#0f172a', // Slate 900
-                            surface: '#1e293b', // Slate 800
+                        primary: {
+                            DEFAULT: '#111111',
+                            light: '#2A2A2A',
                         },
-                        light: {
-                            bg: '#f8fafc', // Slate 50
-                            surface: '#ffffff', 
+                        secondary: {
+                            DEFAULT: '#666666',
+                            light: '#888888',
+                        },
+                        accent: {
+                            DEFAULT: '#2D5AA0', // Professional blue
+                            light: '#3A6BC7',
+                            dark: '#1E3A6D',
+                        },
+                        success: {
+                            DEFAULT: '#10B981',
+                            light: '#34D399',
+                        },
+                        neutral: {
+                            50: '#FAFAFA',
+                            100: '#F5F5F5',
+                            800: '#262626',
+                            900: '#171717',
                         }
                     },
                     animation: {
-                        'fade-in': 'fadeIn 1s ease-out forwards',
-                        'slide-up': 'slideUp 0.8s ease-out forwards',
-                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                        'gradient': 'gradient 3s ease infinite',
+                        'marquee': 'marquee 25s linear infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -47,15 +114,25 @@
                             '100%': { opacity: '1' },
                         },
                         slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
                         }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'grid-pattern': 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)',
                     }
                 }
             }
@@ -63,594 +140,1032 @@
     </script>
 
     <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; }
-        .dark ::-webkit-scrollbar-thumb { background-color: #334155; }
-        ::-webkit-scrollbar-thumb:hover { background-color: #F59E0B; }
-
-        /* Typing Cursor */
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-            color: #F59E0B;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* Premium Glass Effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        }
-        .dark .glass {
-            background: rgba(15, 23, 42, 0.6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Glass Card Utility */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-        }
-        .dark .glass-card {
-            background: rgba(30, 41, 59, 0.4); /* Slate 800 with opacity */
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        /* Performance Optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Smooth transitions for theme switch */
-        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: #444;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #2D5AA0 0%, #3A6BC7 50%, #4F8AF0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glass Morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Grid Pattern */
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        }
+        
+        .dark .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+        }
+        
+        /* Image Hover Effects */
+        .img-hover {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .img-hover:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Underline Animation */
+        .underline-animation {
+            position: relative;
+        }
+        
+        .underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .underline-animation:hover::after {
+            width: 100%;
+        }
+        
+        /* Custom Select Styling */
+        .custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        .dark .custom-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        }
     </style>
 </head>
-<body class="bg-light-bg text-gray-900 dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300 selection:bg-primary selection:text-white relative">
-
-    <!-- Ambient Background Blobs (Fixed) -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 dark:bg-yellow-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-        <!-- Overlay mesh -->
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-50"></div>
+<body class="bg-neutral-50 text-primary dark:bg-neutral-900 dark:text-white antialiased overflow-x-hidden">
+    
+    <!-- Loading Screen -->
+    <div id="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-neutral-900 transition-opacity duration-300">
+        <div class="text-center">
+            <div class="relative">
+                <div class="w-16 h-16 border-4 border-accent/20 border-t-accent rounded-full animate-spin"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-lg font-heading font-semibold">R</span>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-secondary dark:text-neutral-400">Loading Portfolio</p>
+        </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/50 dark:border-white/10 group-hover:border-primary transition-all duration-300 shadow-md">
-                    <img src="proj_0.png" alt="Profile" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop'">
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-bold text-lg tracking-tight leading-none uppercase">Ritivik</span>
-                    <span class="text-[10px] tracking-[0.2em] text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">GRAPHICS DESIGNER | WEB DESIGNER</span>
-                </div>
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide uppercase">
-                <a href="#home" class="hover:text-primary transition-colors relative group py-2">
-                    Home
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#work" class="hover:text-primary transition-colors relative group py-2">
-                    Work
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#about" class="hover:text-primary transition-colors relative group py-2">
-                    About
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#contact" class="hover:text-primary transition-colors relative group py-2">
-                    Contact
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                
-                <!-- Theme Toggle -->
-                <div class="relative ml-4">
-                    <button id="theme-btn" class="p-2 rounded-full bg-white/20 dark:bg-black/20 hover:bg-white/40 dark:hover:bg-white/10 backdrop-blur-sm transition-all border border-white/20 shadow-sm focus:outline-none" aria-label="Toggle Theme">
-                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
-                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden text-slate-700"></i>
-                    </button>
-                    <!-- Dropdown for System Mode -->
-                    <div id="theme-menu" class="hidden absolute right-0 mt-2 w-36 glass-card rounded-xl py-1 text-xs font-medium z-50 overflow-hidden transform origin-top-right transition-all">
-                        <button onclick="setTheme('light')" class="w-full text-left px-4 py-3 hover:bg-white/50 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
-                            <i data-lucide="sun" class="w-3 h-3"></i> Light
-                        </button>
-                        <button onclick="setTheme('dark')" class="w-full text-left px-4 py-3 hover:bg-white/50 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
-                            <i data-lucide="moon" class="w-3 h-3"></i> Dark
-                        </button>
-                        <button onclick="setTheme('system')" class="w-full text-left px-4 py-3 hover:bg-white/50 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
-                            <i data-lucide="monitor" class="w-3 h-3"></i> System
-                        </button>
+    <nav class="fixed top-0 w-full z-40 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-neutral-200/50 dark:border-neutral-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center space-x-2 group">
+                    <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">R</span>
                     </div>
-                </div>
-            </div>
+                    <span class="font-heading font-semibold text-lg tracking-tight">RITIVIK</span>
+                </a>
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#work" class="text-sm font-medium text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white underline-animation transition-colors">
+                        Portfolio
+                    </a>
+                    <a href="#services" class="text-sm font-medium text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white underline-animation transition-colors">
+                        Services
+                    </a>
+                    <a href="#about" class="text-sm font-medium text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white underline-animation transition-colors">
+                        About
+                    </a>
+                    <a href="#process" class="text-sm font-medium text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white underline-animation transition-colors">
+                        Process
+                    </a>
+                    <a href="#contact" class="text-sm font-medium text-white bg-success px-4 py-2 rounded-lg hover:bg-success-light transition-colors shadow-lg hover:shadow-xl">
+                        Let's Talk
+                    </a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-btn" class="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle Theme">
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-neutral-400"></i>
+                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-neutral-600"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Mobile Navigation Overlay (Glassy) -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex items-center justify-center">
-        <button class="absolute top-6 right-6 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors" onclick="toggleMobileMenu()">
-            <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
-        <div class="flex flex-col items-center gap-8 text-2xl font-light">
-            <a href="#home" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">Home</a>
-            <a href="#work" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">Work</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">About</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-primary hover:scale-105 transition-all">Contact</a>
-            <div class="flex gap-4 mt-8">
-                <button onclick="setTheme('light')" class="p-4 rounded-full glass-card hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="sun" class="w-6 h-6"></i></button>
-                <button onclick="setTheme('dark')" class="p-4 rounded-full glass-card hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="moon" class="w-6 h-6"></i></button>
-                <button onclick="setTheme('system')" class="p-4 rounded-full glass-card hover:bg-primary hover:text-white hover:border-primary transition-all"><i data-lucide="monitor" class="w-6 h-6"></i></button>
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="fixed inset-0 z-30 bg-white dark:bg-neutral-900 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center h-16 px-6 border-b border-neutral-200 dark:border-neutral-800">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">R</span>
+                    </div>
+                    <span class="font-heading font-semibold">Ritivik</span>
+                </div>
+                <button class="p-2" onclick="toggleMobileMenu()">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#work" onclick="toggleMobileMenu()" class="text-lg py-3 px-4 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">Portfolio</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="text-lg py-3 px-4 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">Services</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="text-lg py-3 px-4 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">About</a>
+                <a href="#process" onclick="toggleMobileMenu()" class="text-lg py-3 px-4 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">Process</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-lg py-3 px-4 bg-success text-white rounded-lg hover:bg-success-light transition-colors text-center mt-4">Let's Talk</a>
             </div>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="order-2 md:order-1 space-y-8 animate-slide-up">
-                <h1 class="text-5xl md:text-8xl font-bold tracking-tight leading-tight drop-shadow-sm">
-                    Crafting Digital <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-600">Designs</span>
-                </h1>
-                
-                <p class="text-xl text-gray-600 dark:text-gray-300 font-light h-8">
-                    I specialize in <span id="typing-text" class="text-gray-900 dark:text-white font-medium typing-cursor"></span>
-                </p>
-                
-                <div class="flex gap-4 pt-6">
-                    <a href="#work" class="px-8 py-3.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold tracking-wide rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        View Projects
-                    </a>
-                    <a href="#contact" class="px-8 py-3.5 glass-card text-sm font-semibold tracking-wide rounded-lg hover:bg-white/60 dark:hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
-                        Contact Me
-                    </a>
+    <section id="hero" class="min-h-screen pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 grid-bg opacity-20"></div>
+        <div class="max-w-7xl mx-auto relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center py-12">
+                <!-- Hero Content -->
+                <div class="space-y-8 animate-slide-up">
+                    <div class="inline-flex items-center space-x-2 bg-white/50 dark:bg-neutral-800/50 backdrop-blur-sm px-4 py-2 rounded-full border border-neutral-200/50 dark:border-neutral-700/50">
+                        <span class="w-2 h-2 bg-accent rounded-full"></span>
+                        <span class="text-sm font-medium text-secondary dark:text-neutral-400">Professional Graphic Designer</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-semibold leading-tight">
+                        <span class="block">Strategic</span>
+                        <span class="block gradient-text">Design</span>
+                        <span class="block">for Digital</span>
+                        <span class="block">Excellence</span>
+                    </h1>
+                    
+                    <p class="text-xl text-secondary dark:text-neutral-400 leading-relaxed max-w-2xl">
+                        I craft compelling brand identities and digital experiences that merge 
+                        aesthetic precision with strategic thinking to deliver measurable results.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#work" class="px-8 py-4 bg-accent text-white font-medium rounded-lg hover:bg-accent-light transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                            Explore My Work
+                        </a>
+                        <a href="#contact" class="px-8 py-4 border-2 border-neutral-300 dark:border-neutral-700 font-medium rounded-lg hover:border-accent dark:hover:border-accent hover:bg-accent/5 transition-all duration-300 group">
+                            <span class="flex items-center space-x-2">
+                                <span>Book a Consultation</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">50+</div>
+                            <div class="text-sm text-secondary dark:text-neutral-400">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">30+</div>
+                            <div class="text-sm text-secondary dark:text-neutral-400">Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">5+</div>
+                            <div class="text-sm text-secondary dark:text-neutral-400">Years</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Minimal Hero Visual -->
-            <div class="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in">
-                <div class="relative w-72 h-72 md:w-96 md:h-96 group">
-                    <!-- Glassy circle behind -->
-                    <div class="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full border border-white/20 animate-[spin_12s_linear_infinite]"></div>
-                    <div class="absolute inset-8 border border-white/30 dark:border-white/10 rounded-full"></div>
-                    <!-- Image with glass effect container -->
-                    <div class="absolute inset-0 rounded-full p-6 transition-all duration-700">
-                        <img src="proj_0.png" alt="Hero" class="w-full h-full object-cover rounded-full shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700 border-4 border-white/20" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop'">
+                
+                <!-- Hero Visual - Design Showcase -->
+                <div class="relative animate-float">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-success/20 rounded-3xl blur-3xl"></div>
+                        <div class="relative aspect-square overflow-hidden rounded-3xl border-2 border-white/20 dark:border-neutral-700/20">
+                            <div class="w-full h-full bg-gradient-to-br from-accent/10 to-success/10 flex items-center justify-center">
+                                <div class="text-center p-8">
+                                    <i data-lucide="palette" class="w-20 h-20 text-accent mb-6 mx-auto"></i>
+                                    <h3 class="text-2xl font-heading font-semibold mb-2">Visual Design Portfolio</h3>
+                                    <p class="text-secondary dark:text-neutral-400">Brand Identity • UI/UX • Digital Design</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400">
-            <i data-lucide="arrow-down" class="w-6 h-6"></i>
+    </section>
+
+    <!-- Featured Clients -->
+    <section class="py-12 bg-white dark:bg-neutral-900 border-y border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <p class="text-sm text-secondary dark:text-neutral-400 uppercase tracking-wider">Trusted By</p>
+            </div>
+            <div class="overflow-hidden">
+                <div class="flex animate-marquee space-x-16">
+                    <div class="text-2xl font-heading font-semibold opacity-40">Google</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Microsoft</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Adobe</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Apple</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Nike</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Spotify</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Google</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Microsoft</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Adobe</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Apple</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Nike</div>
+                    <div class="text-2xl font-heading font-semibold opacity-40">Spotify</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" class="py-24 px-6">
+    <!-- Services -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-                <div>
-                    <h2 class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-2">Portfolio</h2>
-                    <h3 class="text-3xl md:text-5xl font-serif italic text-gray-900 dark:text-white drop-shadow-sm">Selected Works</h3>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-px bg-accent"></span>
+                    <span class="text-sm font-medium text-accent uppercase tracking-wider">Services</span>
+                    <span class="w-12 h-px bg-accent"></span>
                 </div>
-                <!-- Glassy Filters -->
-                <div class="flex gap-2 p-1 rounded-full glass-card">
-                    <button class="px-5 py-2 text-xs font-medium rounded-full bg-gray-900 text-white dark:bg-white dark:text-black shadow-md transition-all">All</button>
-                    <button class="px-5 py-2 text-xs font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Design</button>
-                    <button class="px-5 py-2 text-xs font-medium rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Web</button>
-                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-semibold mb-6">Strategic Design Solutions</h2>
+                <p class="text-xl text-secondary dark:text-neutral-400 max-w-3xl mx-auto">
+                    Comprehensive design services that transform ideas into impactful visual experiences
+                </p>
             </div>
 
-            <!-- Grid Layout -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Card 1 -->
-                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass p-8 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="palette" class="w-6 h-6 text-accent"></i>
                     </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Branding</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Minimalist Logos</h4>
-                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Brand Identity</h3>
+                    <p class="text-secondary dark:text-neutral-400 mb-6">
+                        Complete visual identity systems including logos, color palettes, typography, 
+                        and brand guidelines that communicate your core values.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Logo Design & Visual Systems
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Brand Strategy & Positioning
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Brand Guidelines & Assets
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <!-- Service 2 -->
+                <div class="glass p-8 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="layout" class="w-6 h-6 text-accent"></i>
                     </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Print</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Event Posters</h4>
-                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">UI/UX Design</h3>
+                    <p class="text-secondary dark:text-neutral-400 mb-6">
+                        User-centered digital experiences that combine beautiful interfaces with 
+                        intuitive interactions to drive engagement and conversions.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Website & App Design
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            User Research & Testing
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Interactive Prototypes
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://drive.google.com/file/d/1EnCIzRe1bZZjdfomZo7CwUKcmmkWUyde/view?usp=sharing" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <!-- Service 3 -->
+                <div class="glass p-8 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="package" class="w-6 h-6 text-accent"></i>
                     </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Marketing</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Social Campaigns</h4>
-                    </div>
+                    <h3 class="text-2xl font-heading font-semibold mb-4">Visual Design</h3>
+                    <p class="text-secondary dark:text-neutral-400 mb-6">
+                        Print and digital collateral that maintains brand consistency across all 
+                        touchpoints while capturing audience attention.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Print & Packaging Design
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Social Media Graphics
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Marketing Materials
+                        </li>
+                    </ul>
                 </div>
-
-                <!-- Card 4 -->
-                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Illustration</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Digital Art</h4>
-                    </div>
-                </div>
-                
-                 <!-- Card 5 -->
-                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">UI/UX</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Ecommerce Web</h4>
-                    </div>
-                </div>
-
-                 <!-- Card 6 -->
-                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Packaging</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Product Box</h4>
-                    </div>
-                </div>
-
-                 <!-- Card 7 -->
-                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Stationery</span>
-                        <h4 class="text-lg font-semibold mt-1 group-hover:text-primary transition-colors">Brand Kits</h4>
-                    </div>
-                </div>
-
-                <!-- QR Card -->
-                <a href="https://drive.google.com/drive/folders/1Ytya_Zx43alhJpllv-MUjM9GBDPetQ6X?usp=sharing" target="_blank" class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center h-full border-dashed border-2 border-primary/30 hover:border-primary">
-                    <div class="w-20 h-20 bg-white rounded-xl p-1 mb-4 shadow-inner">
-                        <img src="QRPROJ.png" alt="QR" class="w-full h-full object-contain" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/drive/folders/1Ytya_Zx43alhJpllv-MUjM9GBDPetQ6X'">
-                    </div>
-                    <span class="text-[10px] text-primary font-bold uppercase tracking-wider">Archives</span>
-                    <h4 class="text-sm font-semibold mt-1 group-hover:text-primary transition-colors">Full Drive Access &rarr;</h4>
-                </a>
-
             </div>
         </div>
     </section>
 
-    <!-- Experience & Skills Section -->
-    <section id="about" class="py-24 px-6 relative">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
-            <!-- Skills -->
-            <div class="glass-card p-10 rounded-3xl">
-                <h3 class="text-3xl font-serif italic mb-10">Capabilities</h3>
-                <div class="space-y-8">
-                    <div>
-                        <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
-                            <span>Graphic Design</span>
-                            <span>95%</span>
+    <!-- Portfolio Section -->
+    <section id="work" class="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-100 dark:bg-neutral-800/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-px bg-accent"></span>
+                    <span class="text-sm font-medium text-accent uppercase tracking-wider">Portfolio</span>
+                    <span class="w-12 h-px bg-accent"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-semibold mb-6">Featured Projects</h2>
+                <p class="text-xl text-secondary dark:text-neutral-400 max-w-3xl mx-auto">
+                    Selected case studies showcasing strategic design solutions and measurable outcomes
+                </p>
+            </div>
+
+            <!-- Featured Projects -->
+            <div class="space-y-32">
+                <!-- Project 1 -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                    <div class="order-2 lg:order-1">
+                        <div class="inline-block px-4 py-1.5 bg-accent/10 rounded-full mb-6">
+                            <span class="text-sm font-medium text-accent">Brand Identity</span>
                         </div>
-                        <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[95%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                        <h3 class="text-3xl font-heading font-semibold mb-4">NovaTech Visual Identity</h3>
+                        <p class="text-lg text-secondary dark:text-neutral-400 mb-6">
+                            Complete brand identity system for a tech startup specializing in 
+                            AI solutions. The design reflects innovation while maintaining approachability.
+                        </p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">Client</span>
+                                <span class="text-sm text-secondary dark:text-neutral-400">NovaTech AI</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">Year</span>
+                                <span class="text-sm text-secondary dark:text-neutral-400">2024</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">Services</span>
+                                <span class="text-sm text-secondary dark:text-neutral-400">Brand Identity, Web Design</span>
+                            </div>
                         </div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-accent font-medium hover:space-x-3 transition-all">
+                            <span>View Case Study</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <div>
-                        <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
-                            <span>UI/UX Design</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[80%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
-                            <span>Video Editing</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[70%] shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                    <div class="order-1 lg:order-2">
+                        <div class="aspect-video overflow-hidden rounded-2xl border-2 border-white/20 dark:border-neutral-700/20">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200" 
+                                 alt="NovaTech Brand Identity"
+                                 class="w-full h-full object-cover img-hover">
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-2 mt-12">
-                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Adobe Photoshop</span>
-                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Illustrator</span>
-                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Figma</span>
-                    <span class="px-4 py-1.5 text-[10px] uppercase font-bold tracking-wider border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default glass-card bg-transparent">Premiere Pro</span>
+                <!-- Project 2 -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                    <div class="order-2 lg:order-2">
+                        <div class="inline-block px-4 py-1.5 bg-accent/10 rounded-full mb-6">
+                            <span class="text-sm font-medium text-accent">UI/UX Design</span>
+                        </div>
+                        <h3 class="text-3xl font-heading font-semibold mb-4">Bloom E-commerce Platform</h3>
+                        <p class="text-lg text-secondary dark:text-neutral-400 mb-6">
+                            User experience redesign for a premium skincare brand, resulting in 
+                            40% increase in conversions and improved customer retention.
+                        </p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">Client</span>
+                                <span class="text-sm text-secondary dark:text-neutral-400">Bloom Skincare</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">Year</span>
+                                <span class="text-sm text-secondary dark:text-neutral-400">2023</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">Impact</span>
+                                <span class="text-sm text-secondary dark:text-neutral-400">40% Conversion Increase</span>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-accent font-medium hover:space-x-3 transition-all">
+                            <span>View Case Study</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="order-1 lg:order-1">
+                        <div class="aspect-video overflow-hidden rounded-2xl border-2 border-white/20 dark:border-neutral-700/20">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200" 
+                                 alt="Bloom E-commerce Design"
+                                 class="w-full h-full object-cover img-hover">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Resume/Timeline -->
-            <div>
-                <h3 class="text-3xl font-serif italic mb-10 pl-4">Journey</h3>
-                <div class="relative border-l border-gray-300 dark:border-gray-700 space-y-12 pl-10 ml-4">
-                    <div class="relative group">
-                        <span class="absolute -left-[45px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-800 bg-gray-300 dark:bg-gray-600 group-hover:bg-primary group-hover:scale-125 transition-all shadow-md"></span>
-                        <span class="text-xs text-primary font-bold tracking-widest uppercase mb-1 block">2024 — 2028</span>
-                        <h4 class="text-xl font-bold">B.Tech in Computer Science</h4>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Bihar University of Technology. Focusing on Human-Computer Interaction and modern web technologies.</p>
+            <!-- Project Grid -->
+            <div class="grid md:grid-cols-3 gap-6 mt-16">
+                <a href="#" class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200" 
+                             alt="Print Design Project"
+                             class="w-full h-full object-cover img-hover group-hover:scale-105">
                     </div>
-                    <div class="relative group">
-                        <span class="absolute -left-[45px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-800 bg-gray-300 dark:bg-gray-600 group-hover:bg-primary group-hover:scale-125 transition-all shadow-md"></span>
-                        <span class="text-xs text-primary font-bold tracking-widest uppercase mb-1 block">2021 — 2023</span>
-                        <h4 class="text-xl font-bold">Higher Secondary</h4>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">BSEB • First Class Distinction. Developed a strong foundation in visual arts and logic.</p>
+                    <h4 class="font-medium mb-1 group-hover:text-accent transition-colors">Art Gallery Identity</h4>
+                    <p class="text-sm text-secondary dark:text-neutral-400">Print & Exhibition Design</p>
+                </a>
+                <a href="#" class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1623039405147-547794f92e9e?q=80&w=1200" 
+                             alt="Digital Campaign"
+                             class="w-full h-full object-cover img-hover group-hover:scale-105">
                     </div>
-                    <div class="relative group">
-                        <span class="absolute -left-[45px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-800 bg-gray-300 dark:bg-gray-600 group-hover:bg-primary group-hover:scale-125 transition-all shadow-md"></span>
-                        <span class="text-xs text-primary font-bold tracking-widest uppercase mb-1 block">2023 — Present</span>
-                        <h4 class="text-xl font-bold">Freelance Designer</h4>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Collaborating with global clients to deliver impactful branding and digital solutions.</p>
+                    <h4 class="font-medium mb-1 group-hover:text-accent transition-colors">Social Media Campaign</h4>
+                    <p class="text-sm text-secondary dark:text-neutral-400">Digital Strategy</p>
+                </a>
+                <a href="#" class="group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200" 
+                             alt="Mobile App Design"
+                             class="w-full h-full object-cover img-hover group-hover:scale-105">
+                    </div>
+                    <h4 class="font-medium mb-1 group-hover:text-accent transition-colors">Fitness Mobile App</h4>
+                    <p class="text-sm text-secondary dark:text-neutral-400">UI/UX Design</p>
+                </a>
+            </div>
+
+            <!-- Archive Link -->
+            <div class="text-center mt-16" data-aos="fade-up">
+                <a href="https://drive.google.com/drive/folders/1Ytya_Zx43alhJpllv-MUjM9GBDPetQ6X" 
+                   target="_blank"
+                   class="inline-flex items-center space-x-2 text-accent font-medium hover:space-x-3 transition-all">
+                    <span>View Complete Project Archive</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center space-x-2 mb-4">
+                        <span class="w-12 h-px bg-accent"></span>
+                        <span class="text-sm font-medium text-accent uppercase tracking-wider">About Me</span>
+                        <span class="w-12 h-px bg-accent"></span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-heading font-semibold mb-8">Crafting Visual Excellence Since 2019</h2>
+                    <div class="space-y-6 text-secondary dark:text-neutral-400">
+                        <p class="leading-relaxed">
+                            With a unique blend of Computer Science expertise and creative vision, I bridge the gap between 
+                            technical precision and aesthetic expression. My approach is rooted in strategic thinking, 
+                            ensuring every design decision serves both form and function.
+                        </p>
+                        <p class="leading-relaxed">
+                            Currently pursuing B.Tech at Bihar University of Technology, I combine academic rigor with 
+                            practical experience gained through 50+ projects for clients across 8 countries. My work 
+                            focuses on creating designs that are not only visually compelling but also strategically effective.
+                        </p>
+                        <div class="pt-4">
+                            <a href="#contact" class="inline-flex items-center space-x-2 text-accent font-medium hover:space-x-3 transition-all">
+                                <span>Start a Conversation</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+                
+                <!-- Skills & Expertise -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-heading font-semibold">Core Expertise</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="font-medium">Brand Identity Design</span>
+                                    <span class="text-accent font-semibold">95%</span>
+                                </div>
+                                <div class="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-11/12"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="font-medium">UI/UX Design</span>
+                                    <span class="text-accent font-semibold">90%</span>
+                                </div>
+                                <div class="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-9/10"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="font-medium">Visual Communication</span>
+                                    <span class="text-accent font-semibold">92%</span>
+                                </div>
+                                <div class="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-[92%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="font-medium">Creative Strategy</span>
+                                    <span class="text-accent font-semibold">88%</span>
+                                </div>
+                                <div class="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-accent to-accent-light rounded-full w-[88%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-heading font-semibold mb-4">Technologies & Tools</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-accent transition-colors">Adobe Creative Suite</span>
+                            <span class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-accent transition-colors">Figma</span>
+                            <span class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-accent transition-colors">Webflow</span>
+                            <span class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-accent transition-colors">Blender</span>
+                            <span class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-accent transition-colors">HTML/CSS</span>
+                            <span class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-accent transition-colors">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section id="process" class="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-100 dark:bg-neutral-800/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="w-12 h-px bg-accent"></span>
+                    <span class="text-sm font-medium text-accent uppercase tracking-wider">Methodology</span>
+                    <span class="w-12 h-px bg-accent"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-semibold mb-6">Structured Design Process</h2>
+                <p class="text-xl text-secondary dark:text-neutral-400 max-w-3xl mx-auto">
+                    A proven framework that ensures clarity, consistency, and exceptional results in every project
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 -left-4 w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">01</span>
+                    </div>
+                    <div class="glass p-8 rounded-2xl pt-12">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="search" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold mb-3">Discover</h3>
+                        <p class="text-secondary dark:text-neutral-400 text-sm">
+                            In-depth research and analysis to understand business objectives, 
+                            target audience, and competitive landscape.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 -left-4 w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">02</span>
+                    </div>
+                    <div class="glass p-8 rounded-2xl pt-12">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="lightbulb" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold mb-3">Define</h3>
+                        <p class="text-secondary dark:text-neutral-400 text-sm">
+                            Establishing clear project scope, success metrics, and creative 
+                            direction based on research insights.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute -top-4 -left-4 w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">03</span>
+                    </div>
+                    <div class="glass p-8 rounded-2xl pt-12">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="pen-tool" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold mb-3">Develop</h3>
+                        <p class="text-secondary dark:text-neutral-400 text-sm">
+                            Creating and iterating design solutions through prototyping, 
+                            testing, and client collaboration.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute -top-4 -left-4 w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">04</span>
+                    </div>
+                    <div class="glass p-8 rounded-2xl pt-12">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="rocket" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold mb-3">Deliver</h3>
+                        <p class="text-secondary dark:text-neutral-400 text-sm">
+                            Final refinement, asset preparation, and implementation support 
+                            to ensure successful launch.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-heading font-semibold mb-6">
+                Ready to Transform Your Visual Identity?
+            </h2>
+            <p class="text-xl text-secondary dark:text-neutral-400 mb-10 max-w-2xl mx-auto">
+                Let's collaborate to create designs that not only look stunning but also drive 
+                measurable business results.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-4 bg-success text-white font-medium rounded-lg hover:bg-success-light transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    Start a Project
+                </a>
+                <a href="#work" class="px-8 py-4 border-2 border-neutral-300 dark:border-neutral-700 font-medium rounded-lg hover:border-accent dark:hover:border-accent transition-all duration-300">
+                    Explore Portfolio
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6">
-        <div class="max-w-5xl mx-auto glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
-            
-            <!-- Contact Info Sidebar -->
-            <div class="md:w-2/5 bg-gray-900/95 dark:bg-black/60 text-white p-12 flex flex-col justify-between relative overflow-hidden backdrop-blur-xl">
-                <!-- Decorative Blur -->
-                <div class="absolute top-0 right-0 w-40 h-40 bg-primary/30 rounded-full blur-3xl -mr-10 -mt-10 animate-pulse"></div>
-                <div class="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl -ml-10 -mb-10"></div>
-                
-                <div class="relative z-10">
-                    <h3 class="text-3xl font-bold mb-8 font-serif">Let's talk</h3>
-                    <div class="space-y-8 text-sm text-gray-300">
-                        <a href="mailto:ritivik.org@gmail.com" class="flex items-center gap-4 hover:text-primary transition-colors group">
-                            <div class="p-2 rounded-lg bg-white/10 group-hover:bg-primary group-hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></div>
-                             ritivik.org@gmail.com
-                        </a>
-                        <a href="tel:7061978295" class="flex items-center gap-4 hover:text-primary transition-colors group">
-                             <div class="p-2 rounded-lg bg-white/10 group-hover:bg-primary group-hover:text-white transition-colors"><i data-lucide="phone" class="w-5 h-5"></i></div>
-                             +91 7061978295
-                        </a>
-                        <div class="flex items-center gap-4 group">
-                             <div class="p-2 rounded-lg bg-white/10"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
-                             Patna, India
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center space-x-2 mb-4">
+                        <span class="w-12 h-px bg-accent"></span>
+                        <span class="text-sm font-medium text-accent uppercase tracking-wider">Contact</span>
+                        <span class="w-12 h-px bg-accent"></span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-heading font-semibold mb-8">Let's Create Together</h2>
+                    <p class="text-xl text-secondary dark:text-neutral-400 mb-12">
+                        Have a project in mind? Let's discuss how we can bring your vision to life 
+                        with strategic design solutions.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6 group">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-secondary dark:text-neutral-400 mb-1">Email</div>
+                                <a href="mailto:ritivik.org@gmail.com" class="text-lg font-medium group-hover:text-accent transition-colors">ritivik.org@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 group">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-secondary dark:text-neutral-400 mb-1">Phone</div>
+                                <a href="tel:+917061978295" class="text-lg font-medium group-hover:text-accent transition-colors">+91 7061978295</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-secondary dark:text-neutral-400 mb-1">Location</div>
+                                <div class="text-lg font-medium">Patna, Bihar, India</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="pt-12">
+                        <h3 class="font-heading font-semibold mb-6">Connect With Me</h3>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 group">
+                                <i data-lucide="linkedin" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 group">
+                                <i data-lucide="behance" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 group">
+                                <i data-lucide="dribbble" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 group">
+                                <i data-lucide="instagram" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-4 mt-12 md:mt-0 relative z-10">
-                    <a href="#" class="p-3 bg-white/10 rounded-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    <a href="#" class="p-3 bg-white/10 rounded-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                    <a href="#" class="p-3 bg-white/10 rounded-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="glass p-8 rounded-2xl">
+                        <h3 class="text-2xl font-heading font-semibold mb-6">Send a Message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2" for="name">Name *</label>
+                                    <input type="text" id="name" name="Name" required 
+                                           class="w-full px-4 py-3 bg-white/50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2" for="email">Email *</label>
+                                    <input type="email" id="email" name="Email" required 
+                                           class="w-full px-4 py-3 bg-white/50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="company">Company</label>
+                                <input type="text" id="company" name="Company" 
+                                       class="w-full px-4 py-3 bg-white/50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="project">Project Type *</label>
+                                <select id="project" name="Project Type" required
+                                       class="custom-select w-full px-4 py-3 bg-white/50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors">
+                                    <option value="" class="text-secondary dark:text-neutral-400">Select a project type</option>
+                                    <option value="brand-identity" class="text-primary dark:text-white">Brand Identity</option>
+                                    <option value="ui-ux" class="text-primary dark:text-white">UI/UX Design</option>
+                                    <option value="print-design" class="text-primary dark:text-white">Print Design</option>
+                                    <option value="website" class="text-primary dark:text-white">Website Design</option>
+                                    <option value="other" class="text-primary dark:text-white">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="message">Project Details *</label>
+                                <textarea id="message" name="Message" rows="5" required 
+                                       class="w-full px-4 py-3 bg-white/50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" 
+                                    class="w-full px-8 py-4 bg-accent text-white font-medium rounded-lg hover:bg-accent-light transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg">
+                                <span class="flex items-center justify-center space-x-2">
+                                    <span>Send Message</span>
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </span>
+                            </button>
+                            <div id="form-message" class="text-sm text-center p-4 rounded-lg hidden"></div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Form -->
-            <div class="md:w-3/5 p-12 bg-white/40 dark:bg-white/5 backdrop-blur-md">
-                <form id="inquiry-form" class="space-y-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="relative group">
-                            <input type="text" name="Name" id="name" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm placeholder-transparent" placeholder="Name">
-                            <label for="name" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary">Your Name</label>
-                        </div>
-                        <div class="relative group">
-                            <input type="email" name="Email" id="email" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm placeholder-transparent" placeholder="Email">
-                            <label for="email" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary">Email Address</label>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <input type="text" name="Subject" id="subject" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm placeholder-transparent" placeholder="Subject">
-                        <label for="subject" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary">Subject</label>
-                    </div>
-                    <div class="relative group pt-4">
-                        <textarea name="Message" id="message" rows="3" required class="peer w-full bg-transparent border-b border-gray-400 dark:border-gray-600 py-2 focus:outline-none focus:border-primary transition-colors text-sm resize-none placeholder-transparent" placeholder="Message"></textarea>
-                        <label for="message" class="absolute left-0 -top-1.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-focus:-top-1.5 peer-focus:text-xs peer-focus:text-primary">Your Message</label>
-                    </div>
-
-                    <div class="flex items-center justify-between pt-6">
-                        <button type="submit" id="submit-btn" class="px-10 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl text-sm font-bold tracking-widest uppercase hover:shadow-xl hover:-translate-y-1 transform active:scale-95 transition-all">
-                            Send Message
-                        </button>
-                        <div id="form-message" class="hidden text-xs text-primary font-medium uppercase tracking-wide"></div>
-                    </div>
-                </form>
             </div>
         </div>
     </section>
 
-    <!-- Simple Footer -->
-    <footer class="py-8 text-center text-xs text-gray-500 border-t border-gray-200 dark:border-gray-800 glass">
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Ritivik Kumar.All right reserved.</p>
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <!-- Logo & Copyright -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-heading font-bold">R</span>
+                    </div>
+                    <div>
+                        <div class="font-heading font-semibold">Ritivik Kumar</div>
+                        <div class="text-sm text-secondary dark:text-neutral-400 mt-1">
+                            © <script>document.write(new Date().getFullYear())</script> All rights reserved.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex flex-wrap gap-6 text-sm">
+                    <a href="#work" class="text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white transition-colors">Portfolio</a>
+                    <a href="#services" class="text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white transition-colors">Services</a>
+                    <a href="#process" class="text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white transition-colors">Process</a>
+                    <a href="#contact" class="text-secondary dark:text-neutral-400 hover:text-primary dark:hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <!-- Back to Top -->
+                <a href="#hero" class="group flex items-center space-x-2 text-sm text-secondary dark:text-neutral-400 hover:text-accent transition-colors">
+                    <span>Back to top</span>
+                    <i data-lucide="arrow-up" class="w-4 h-4 group-hover:-translate-y-0.5 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-12 pt-8 border-t border-neutral-200/50 dark:border-neutral-800/50 text-center">
+                <p class="text-sm text-secondary dark:text-neutral-400">
+                    Crafted with precision in Patna, India • Delivering excellence globally
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // --- Icon Initialization ---
+        // Initialize AOS Animation Library
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // --- Theme Engine ---
+        // Theme Toggle
         const themeBtn = document.getElementById('theme-btn');
-        const themeMenu = document.getElementById('theme-menu');
         
-        // Toggle Dropdown
-        themeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            themeMenu.classList.toggle('hidden');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            themeMenu.classList.add('hidden');
-        });
-
-        function setTheme(theme) {
+        function toggleTheme() {
             const html = document.documentElement;
-            
-            if (theme === 'system') {
-                localStorage.removeItem('theme');
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    html.classList.add('dark');
-                } else {
-                    html.classList.remove('dark');
-                }
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
             } else {
-                localStorage.setItem('theme', theme);
-                if (theme === 'dark') {
-                    html.classList.add('dark');
-                } else {
-                    html.classList.remove('dark');
-                }
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
             }
-            themeMenu.classList.add('hidden');
+            lucide.createIcons();
         }
 
-        // Initialize Theme
+        themeBtn.addEventListener('click', toggleTheme);
+        
+        // Initialize theme from localStorage or system preference
         (function initTheme() {
             const savedTheme = localStorage.getItem('theme');
-            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             
-            if (savedTheme === 'dark' || (!savedTheme && systemTheme)) {
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
             }
         })();
 
-        // --- Typing Animation ---
-        const typeText = document.getElementById('typing-text');
-        const phrases = ["Brand Identity", "User Interfaces", "Visual Systems", "Motion Graphics"];
-        let phraseIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
-        
-        function type() {
-            const current = phrases[phraseIdx];
-            if (isDeleting) {
-                typeText.textContent = current.substring(0, charIdx - 1);
-                charIdx--;
-            } else {
-                typeText.textContent = current.substring(0, charIdx + 1);
-                charIdx++;
-            }
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-            let speed = 100;
-            if (isDeleting) speed = 50;
-            if (!isDeleting && charIdx === current.length) {
-                speed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-                speed = 500;
-            }
-            setTimeout(type, speed);
-        }
-        type();
-
-        // --- Mobile Menu ---
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const isOpen = !menu.classList.contains('translate-x-full');
-            
-            if (isOpen) {
-                menu.classList.add('translate-x-full');
-            } else {
-                menu.classList.remove('translate-x-full');
-            }
+            mobileMenu.classList.toggle('translate-x-full');
+            lucide.createIcons();
         }
 
-        // --- Navbar Scroll Logic ---
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                nav.classList.add('shadow-md');
-                // Increase opacity on scroll for better text legibility
-                if(document.documentElement.classList.contains('dark')) {
-                    nav.style.background = 'rgba(15, 23, 42, 0.85)';
-                } else {
-                    nav.style.background = 'rgba(255, 255, 255, 0.75)';
-                }
-            } else {
-                nav.classList.remove('shadow-md');
-                nav.style.background = '';
-            }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
         });
 
-        // --- Form Submission ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzF-hG9jUUP-_ze9Q2_ONHpohiCEhW5v6KK7PvWAMPivl2g49L9tTonc6OIjNV2X3hO/exec';
-        const form = document.getElementById('inquiry-form');
-        const submitBtn = document.getElementById('submit-btn');
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                }, 300);
+            }, 800);
+        });
+
+        // Form Submission
+        const form = document.getElementById('contact-form');
         const formMsg = document.getElementById('form-message');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzF-hG9jUUP-_ze9Q2_ONHpohiCEhW5v6KK7PvWAMPivl2g49L9tTonc6OIjNV2X3hO/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending...';
+            submitBtn.innerHTML = `
+                <span class="flex items-center justify-center space-x-2">
+                    <span>Sending...</span>
+                    <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>
+                </span>
+            `;
+            lucide.createIcons();
 
-            const formData = new URLSearchParams();
-            formData.append('Date', new Date().toLocaleDateString());
-            formData.append('Time', new Date().toLocaleTimeString());
+            const formData = new FormData();
+            formData.append('Timestamp', new Date().toISOString());
             formData.append('Name', form.elements['Name'].value);
             formData.append('Email', form.elements['Email'].value);
-            formData.append('Subject', form.elements['Subject'].value);
+            formData.append('Company', form.elements['Company'].value);
+            formData.append('Project Type', form.elements['Project Type'].value);
             formData.append('Message', form.elements['Message'].value);
 
-            fetch(scriptURL, { 
-                method: 'POST', 
+            fetch(scriptURL, {
+                method: 'POST',
                 body: formData,
-                headers: { "Content-Type": "application/x-www-form-urlencoded" }
             })
             .then(response => {
-                formMsg.textContent = 'Message sent.';
-                formMsg.classList.remove('hidden', 'text-red-500');
-                formMsg.classList.add('text-green-600');
+                formMsg.textContent = 'Thank you for your message! I\'ll get back to you within 24 hours.';
+                formMsg.className = 'text-sm text-green-600 bg-green-50 dark:bg-green-900/20 text-center p-4 rounded-lg';
+                formMsg.classList.remove('hidden');
                 form.reset();
             })
             .catch(error => {
-                formMsg.textContent = 'Error sending message.';
-                formMsg.classList.remove('hidden', 'text-green-600');
-                formMsg.classList.add('text-red-500');
+                formMsg.textContent = 'There was an error sending your message. Please try again or email me directly.';
+                formMsg.className = 'text-sm text-red-600 bg-red-50 dark:bg-red-900/20 text-center p-4 rounded-lg';
+                formMsg.classList.remove('hidden');
             })
             .finally(() => {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Send Message';
-                setTimeout(() => formMsg.classList.add('hidden'), 5000);
+                submitBtn.innerHTML = `
+                    <span class="flex items-center justify-center space-x-2">
+                        <span>Send Message</span>
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </span>
+                `;
+                lucide.createIcons();
+                
+                // Scroll to form message
+                formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide message after 10 seconds
+                setTimeout(() => formMsg.classList.add('hidden'), 10000);
             });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'dark:shadow-neutral-900/50');
+            } else {
+                nav.classList.remove('shadow-lg', 'dark:shadow-neutral-900/50');
+            }
         });
     </script>
 </body>
-
 </html>
-
-
