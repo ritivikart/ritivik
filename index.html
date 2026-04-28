@@ -1,649 +1,1113 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Ritivik | Graphic Designer & Visual Strategist</title>
-    <meta name="description" content="Ritivik - Graphic designer specializing in brand identity, UI/UX design, and visual storytelling.">
-    
-    <!-- Fonts -->
+    <title>Ritivik — Graphic Designer & Visual Strategist</title>
+    <meta name="description" content="Ritivik — Graphic designer crafting brand identities, UI/UX and visual experiences.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#0F0F0F',
-                        secondary: '#5B5B5B',
-                        accent: {
-                            DEFAULT: '#FF6B4A',  // vibrant coral
-                            light: '#FF8A6F',
-                            dark: '#E54C2B',
-                        },
-                        mint: {
-                            DEFAULT: '#2B9C76',  // fresh green accent
-                            light: '#3FB489',
-                        },
-                        neutral: {
-                            50: '#F9F9F9',
-                            100: '#F0F0F0',
-                            800: '#1A1A1A',
-                            900: '#121212',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 4s ease-in-out infinite',
-                        'slide-up': 'slideUp 0.7s ease-out forwards',
-                        'ken-burns': 'kenBurns 12s ease infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-15px) rotate(0.5deg)' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        kenBurns: {
-                            '0%': { transform: 'scale(1) translate(0, 0)' },
-                            '100%': { transform: 'scale(1.05) translate(-1%, -1%)' },
-                        }
-                    },
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
     <style>
-        * { -webkit-font-smoothing: antialiased; }
-        
-        /* Minimalist cursor indicator – subtle ring */
-        .cursor-ring {
-            width: 32px;
-            height: 32px;
-            border: 1.5px solid #FF6B4A;
-            position: fixed;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0F;
+            --bg2: #0F0F1A;
+            --bg3: #141424;
+            --surface: #1A1A2E;
+            --surface2: #1E1E35;
+            --border: rgba(255,255,255,0.07);
+            --border-bright: rgba(255,255,255,0.15);
+            --text: #F0EDE8;
+            --text-dim: #8A8799;
+            --text-muted: #555265;
+            --accent: #C8F078;      /* electric lime */
+            --accent2: #7B61FF;     /* violet */
+            --accent3: #FF6B6B;     /* coral */
+            --accent-dim: rgba(200,240,120,0.12);
+            --accent2-dim: rgba(123,97,255,0.12);
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-heading: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --nav-h: 72px;
+            --r: 16px;
+            --r-lg: 24px;
+            --r-xl: 32px;
+            --shadow: 0 32px 80px rgba(0,0,0,0.5);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 10px; }
+
+        /* ── CURSOR ── */
+        .cursor {
+            width: 12px; height: 12px;
+            background: var(--accent);
             border-radius: 50%;
+            position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: all 0.1s ease;
-            opacity: 0.7;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: normal;
+            transform: translate(-50%,-50%);
+            transition: transform 0.15s ease, width 0.25s ease, height 0.25s ease, background 0.25s ease;
+            mix-blend-mode: exclusion;
         }
-        
-        /* Hide default cursor when ring is active (desktop) */
-        @media (min-width: 768px) {
-            body {
-                cursor: none;
-            }
-            a, button {
-                cursor: none;
-            }
+        .cursor.big { width: 60px; height: 60px; }
+        @media (hover: none) { .cursor { display: none; } }
+        @media (min-width: 768px) { body, a, button { cursor: none; } }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            height: var(--nav-h);
+            display: flex; align-items: center;
+            padding: 0 clamp(24px, 5vw, 64px);
+            background: rgba(10,10,15,0.7);
+            backdrop-filter: blur(24px) saturate(1.5);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
         }
-        
-        /* Split text effect */
-        .split-text {
+        .nav-inner {
+            width: 100%; max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 800; font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            text-decoration: none; color: var(--text);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; }
+        .nav-links { display: flex; align-items: center; gap: 36px; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-dim);
+            font-family: var(--font-heading); font-size: 0.8rem;
+            font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--accent) !important;
+            color: #0A0A0F !important;
+            padding: 10px 22px; border-radius: 100px;
+            font-weight: 600 !important;
+            letter-spacing: 0.02em !important;
+            transition: opacity 0.2s !important;
+        }
+        .nav-cta:hover { opacity: 0.85; color: #0A0A0F !important; }
+
+        /* hamburger */
+        .ham { display: none; background: none; border: none; color: var(--text); padding: 8px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .ham { display: flex; align-items: center; }
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100svh;
+            padding: calc(var(--nav-h) + 80px) clamp(24px, 5vw, 64px) 80px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+
+        /* animated grid */
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+            animation: gridShift 20s linear infinite;
+        }
+        @keyframes gridShift {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        /* glows */
+        .glow-1 {
+            position: absolute; width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(123,97,255,0.18) 0%, transparent 65%);
+            top: -200px; right: -200px; pointer-events: none;
+            animation: floatGlow 8s ease-in-out infinite;
+        }
+        .glow-2 {
+            position: absolute; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(200,240,120,0.12) 0%, transparent 65%);
+            bottom: -100px; left: -100px; pointer-events: none;
+            animation: floatGlow 10s ease-in-out infinite reverse;
+        }
+        @keyframes floatGlow {
+            0%,100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(30px,-30px) scale(1.08); }
+        }
+
+        .hero-inner {
+            position: relative; z-index: 1;
+            max-width: 1400px; width: 100%;
+            margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+        }
+        @media (max-width: 960px) { .hero-inner { grid-template-columns: 1fr; gap: 48px; } }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent2-dim); border: 1px solid rgba(123,97,255,0.25);
+            padding: 6px 14px; border-radius: 100px;
+            font-family: var(--font-heading); font-size: 0.72rem;
+            font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent2); margin-bottom: 28px;
+        }
+        .badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(52px, 7vw, 96px);
+            line-height: 1.0;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            color: var(--text-dim);
+            max-width: 440px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 28px; border-radius: 100px;
+            font-family: var(--font-heading); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 0.04em;
+            text-decoration: none; border: none; cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .btn-primary { background: var(--accent); color: #0A0A0F; }
+        .btn-primary:hover { background: #d8ff8a; transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border-bright);
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+        .btn svg { width: 16px; height: 16px; }
+
+        .hero-stats {
+            display: flex; gap: 36px; margin-top: 48px;
+            padding-top: 36px; border-top: 1px solid var(--border);
+        }
+        .stat-num {
+            font-family: var(--font-heading); font-size: 2rem;
+            font-weight: 700; color: var(--text);
+            line-height: 1;
+        }
+        .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* right side visuals */
+        .hero-visual { position: relative; height: 560px; }
+        .hero-card {
+            position: absolute;
+            border-radius: var(--r-lg);
             overflow: hidden;
-            line-height: 1.2;
+            box-shadow: var(--shadow);
         }
-        
-        .split-text span {
-            display: inline-block;
-            transform: translateY(100%);
-            animation: slideUpWord 0.8s forwards;
+        .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hc-main {
+            top: 0; right: 0; width: 82%; height: 390px;
+            animation: floatCard 6s ease-in-out infinite;
         }
-        
-        @keyframes slideUpWord {
-            to { transform: translateY(0); }
+        .hc-secondary {
+            bottom: 0; left: 0; width: 60%; height: 240px;
+            border: 2px solid var(--surface);
+            animation: floatCard 6s ease-in-out infinite 1.5s;
+            z-index: 2;
         }
-        
-        /* Image mask */
-        .mask-image {
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        @keyframes floatCard {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
-        
-        /* Diagonal lines */
-        .diagonal-lines {
-            background: repeating-linear-gradient(45deg, rgba(255,107,74,0.1) 0px, rgba(255,107,74,0.1) 2px, transparent 2px, transparent 8px);
+        .hc-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(123,97,255,0.2) 0%, transparent 60%);
         }
-        
-        /* Theme transition */
-        * {
-            transition: background-color 0.2s ease, border-color 0.2s ease;
+
+        /* floating badge */
+        .float-tag {
+            position: absolute; z-index: 3;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-bright);
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: var(--font-heading); font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.04em;
+            display: flex; align-items: center; gap: 8px;
         }
+        .ft-1 { top: 40px; left: 0; animation: floatBadge 4s ease-in-out infinite; }
+        .ft-2 { bottom: 80px; right: 0; animation: floatBadge 4s ease-in-out infinite 2s; }
+        @keyframes floatBadge {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .ft-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+        /* scroll hint */
+        .scroll-hint {
+            position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            color: var(--text-muted); font-size: 0.7rem;
+            font-family: var(--font-heading); letter-spacing: 0.1em; text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px; height: 40px;
+            background: linear-gradient(to bottom, var(--text-muted), transparent);
+            animation: scrollDown 2s ease-in-out infinite;
+        }
+        @keyframes scrollDown { 0%,100%{opacity:0.4; transform:scaleY(1)} 50%{opacity:1; transform:scaleY(1.2)} }
+
+        /* ── SECTION SHARED ── */
+        section { padding: clamp(80px, 10vw, 140px) clamp(24px, 5vw, 64px); }
+        .section-inner { max-width: 1400px; margin: 0 auto; }
+        .section-label {
+            font-family: var(--font-heading); font-size: 0.72rem;
+            font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px; display: block;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 4.5vw, 64px);
+            font-weight: 400; line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .section-title em { font-style: italic; color: var(--accent2); }
+
+        /* ── MARQUEE ── */
+        .marquee-wrap {
+            overflow: hidden; padding: 24px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg2);
+        }
+        .marquee-track {
+            display: flex; gap: 0;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+        }
+        .marquee-item {
+            display: inline-flex; align-items: center; gap: 20px;
+            padding: 0 40px;
+            font-family: var(--font-heading); font-size: 0.8rem;
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .marquee-item .sep { color: var(--accent); font-size: 1.2rem; }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+        /* ── SERVICES ── */
+        #services { background: var(--bg2); }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2px; margin-top: 64px;
+            border: 1px solid var(--border);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+        }
+        @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+
+        .service-card {
+            background: var(--bg2); padding: 48px 40px;
+            border-right: 1px solid var(--border);
+            position: relative; overflow: hidden;
+            transition: background 0.3s;
+        }
+        .service-card:last-child { border-right: none; }
+        .service-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--card-accent, var(--accent));
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover { background: var(--surface); }
+
+        .service-num {
+            font-family: var(--font-heading); font-size: 0.7rem;
+            font-weight: 600; letter-spacing: 0.1em;
+            color: var(--text-muted); margin-bottom: 24px;
+        }
+        .service-icon {
+            width: 52px; height: 52px;
+            background: var(--accent-dim); border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px; font-size: 1.4rem;
+            border: 1px solid rgba(200,240,120,0.15);
+        }
+        .service-name {
+            font-family: var(--font-heading); font-size: 1.35rem;
+            font-weight: 700; margin-bottom: 14px; color: var(--text);
+        }
+        .service-desc { color: var(--text-dim); font-size: 0.9rem; line-height: 1.65; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+        .tag {
+            font-size: 0.7rem; font-family: var(--font-heading);
+            font-weight: 500; letter-spacing: 0.04em;
+            padding: 4px 12px; border-radius: 100px;
+            background: var(--bg); border: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+
+        /* ── WORK ── */
+        #work { background: var(--bg); }
+        .work-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; gap: 24px; flex-wrap: wrap; }
+
+        /* featured project */
+        .project-featured {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 0; border-radius: var(--r-xl); overflow: hidden;
+            border: 1px solid var(--border); margin-bottom: 24px;
+            background: var(--bg2);
+        }
+        @media (max-width: 860px) { .project-featured { grid-template-columns: 1fr; } }
+
+        .project-img {
+            position: relative; overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        .project-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        .project-featured:hover .project-img img { transform: scale(1.04); }
+        .img-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(123,97,255,0.35) 0%, transparent 50%);
+        }
+
+        .project-info {
+            padding: 52px 48px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        @media (max-width: 860px) { .project-info { padding: 36px 28px; } }
+        .project-cat {
+            font-family: var(--font-heading); font-size: 0.7rem;
+            font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+        }
+        .project-name {
+            font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 48px);
+            font-weight: 400; line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .project-desc { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+        .project-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-heading); font-size: 0.82rem; font-weight: 600;
+            letter-spacing: 0.04em; color: var(--accent);
+            text-decoration: none; width: fit-content;
+            padding-bottom: 2px; border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, gap 0.2s;
+        }
+        .project-link:hover { border-color: var(--accent); gap: 12px; }
+
+        /* grid 2-col projects */
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 700px) { .projects-grid { grid-template-columns: 1fr; } }
+
+        .project-card {
+            border-radius: var(--r-lg); overflow: hidden;
+            border: 1px solid var(--border); background: var(--bg2);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .project-card:hover { border-color: var(--border-bright); transform: translateY(-4px); }
+        .project-card .project-img { aspect-ratio: 16/10; }
+        .project-card .project-info { padding: 28px; }
+
+        /* ── ABOUT ── */
+        #about { background: var(--bg2); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+        .about-imgs { position: relative; height: 540px; }
+        .about-img-main {
+            position: absolute; top: 0; right: 0; width: 75%; height: 70%;
+            border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow);
+        }
+        .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+        .about-img-sec {
+            position: absolute; bottom: 0; left: 0; width: 55%; height: 55%;
+            border-radius: var(--r-lg); overflow: hidden;
+            border: 3px solid var(--bg2); box-shadow: var(--shadow);
+            z-index: 2;
+        }
+        .about-img-sec img { width: 100%; height: 100%; object-fit: cover; }
+        .about-monogram {
+            position: absolute; bottom: 20px; right: 10px; z-index: 3;
+            width: 100px; height: 100px;
+            background: var(--accent2-dim); border: 1px solid rgba(123,97,255,0.3);
+            border-radius: var(--r); display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-size: 2rem; color: var(--accent2);
+            font-style: italic;
+        }
+
+        .about-content { }
+        .about-text { color: var(--text-dim); line-height: 1.8; margin-bottom: 16px; font-size: 1rem; }
+        .about-stats { display: flex; gap: 32px; margin: 40px 0; padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .avail-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(200,240,120,0.1); border: 1px solid rgba(200,240,120,0.25);
+            padding: 10px 20px; border-radius: 100px;
+            font-family: var(--font-heading); font-size: 0.8rem; font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* tools */
+        .tools-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+        .tool-chip {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 8px;
+            font-family: var(--font-heading); font-size: 0.78rem;
+            font-weight: 500; color: var(--text-dim);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .tool-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+        /* ── PROCESS ── */
+        #process { background: var(--bg); }
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 64px; }
+        @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 500px) { .process-grid { grid-template-columns: 1fr; } }
+
+        .process-step {
+            padding: 40px 36px;
+            border: 1px solid var(--border);
+            position: relative; overflow: hidden;
+            transition: background 0.3s;
+        }
+        .process-step:hover { background: var(--surface); }
+        .process-step:nth-child(odd) { background: var(--bg2); }
+        .process-step:nth-child(odd):hover { background: var(--surface2); }
+
+        .proc-num {
+            font-family: var(--font-display); font-size: 5rem; font-style: italic;
+            color: rgba(255,255,255,0.04); line-height: 1;
+            position: absolute; top: 12px; right: 20px;
+        }
+        .proc-icon { font-size: 1.8rem; margin-bottom: 20px; }
+        .proc-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+        .proc-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.65; }
+
+        /* ── CONTACT ── */
+        #contact { background: var(--bg2); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+        .contact-big {
+            font-family: var(--font-display);
+            font-size: clamp(44px, 6vw, 80px);
+            line-height: 1.05; font-weight: 400; letter-spacing: -0.02em;
+            margin: 24px 0 32px;
+        }
+        .contact-big em { font-style: italic; color: var(--accent); }
+
+        .contact-links { display: flex; flex-direction: column; gap: 16px; }
+        .contact-link {
+            display: flex; align-items: center; gap: 16px;
+            text-decoration: none; color: var(--text);
+            padding: 20px 24px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--r); transition: all 0.25s;
+        }
+        .contact-link:hover { border-color: var(--accent); background: var(--surface2); transform: translateX(4px); }
+        .contact-link-icon {
+            width: 44px; height: 44px; border-radius: 10px;
+            background: var(--accent-dim); border: 1px solid rgba(200,240,120,0.2);
+            display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .contact-link-text strong { display: block; font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; }
+        .contact-link-text span { font-size: 0.8rem; color: var(--text-dim); }
+
+        /* form */
+        .form-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--r-xl); padding: 48px 40px;
+        }
+        .form-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; margin-bottom: 32px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+        .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+        .field label { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+        .field input, .field textarea, .field select {
+            background: var(--bg2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 14px 18px;
+            color: var(--text); font-family: var(--font-body); font-size: 0.95rem;
+            outline: none; transition: border-color 0.2s;
+            resize: none; width: 100%;
+        }
+        .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
+        .field input:focus, .field textarea:focus { border-color: var(--accent); }
+        .submit-btn {
+            width: 100%; padding: 16px; border-radius: 100px;
+            background: var(--accent); color: #0A0A0F;
+            border: none; font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: all 0.25s; margin-top: 8px;
+        }
+        .submit-btn:hover { background: #d8ff8a; transform: translateY(-2px); }
+        .form-success {
+            display: none; text-align: center; padding: 16px;
+            background: rgba(200,240,120,0.1); border: 1px solid rgba(200,240,120,0.25);
+            border-radius: 10px; color: var(--accent);
+            font-family: var(--font-heading); font-size: 0.9rem; font-weight: 500;
+            margin-top: 12px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 32px clamp(24px, 5vw, 64px);
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .footer-inner {
+            max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 16px;
+        }
+        .footer-copy { font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-heading); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; font-family: var(--font-heading); font-weight: 500; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+        .back-top { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; font-family: var(--font-heading); font-weight: 500; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+        .back-top:hover { color: var(--accent); }
+
+        /* ── MOBILE MENU ── */
+        .mobile-nav {
+            position: fixed; inset: 0; z-index: 200;
+            background: var(--bg2);
+            display: flex; flex-direction: column;
+            padding: 24px;
+            transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
+        .mobile-nav-links { display: flex; flex-direction: column; gap: 36px; }
+        .mobile-nav-links a {
+            font-family: var(--font-display); font-size: 2.5rem; font-weight: 400;
+            color: var(--text); text-decoration: none; line-height: 1;
+            transition: color 0.2s;
+        }
+        .mobile-nav-links a:hover { color: var(--accent); }
+
+        /* ── REVEAL ANIMATIONS ── */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
     </style>
 </head>
-<body class="bg-neutral-50 text-primary dark:bg-neutral-900 dark:text-white font-sans overflow-x-hidden">
-    
-    <!-- Minimalist cursor ring -->
-    <div class="cursor-ring hidden md:block" id="cursorRing"></div>
+<body>
 
-    <!-- Navigation - minimal with theme toggle -->
-    <nav class="fixed top-0 w-full z-40 bg-white/60 dark:bg-neutral-900/60 backdrop-blur-lg border-b border-neutral-200/30 dark:border-neutral-800/30">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="#hero" class="text-xl font-heading font-bold tracking-tight">
-                    <span class="text-accent">R</span>K
+<!-- cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- nav -->
+<nav>
+    <div class="nav-inner">
+        <a href="#hero" class="logo"><span class="logo-dot"></span>Ritivik</a>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#process">Process</a>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+        </div>
+        <button class="ham" id="ham-btn" aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-header">
+        <a href="#hero" class="logo"><span class="logo-dot"></span>Ritivik</a>
+        <button id="close-menu" aria-label="Close">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+    <nav class="mobile-nav-links">
+        <a href="#work" class="mob-link">Work</a>
+        <a href="#services" class="mob-link">Services</a>
+        <a href="#about" class="mob-link">About</a>
+        <a href="#process" class="mob-link">Process</a>
+        <a href="#contact" class="mob-link">Contact</a>
+    </nav>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+    <div class="hero-grid"></div>
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge"><span class="badge-dot"></span>Available for projects</div>
+            <h1>Visuals<br>that <em>speak</em><br>volumes.</h1>
+            <p class="hero-sub">Brand identity, UI/UX, and visual storytelling — crafted with precision for brands that want to be remembered.</p>
+            <div class="btn-group">
+                <a href="#work" class="btn btn-primary">
+                    View work
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
-                
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="#work" class="text-sm font-medium hover:text-accent transition-colors">Work</a>
-                    <a href="#services" class="text-sm font-medium hover:text-accent transition-colors">Services</a>
-                    <a href="#about" class="text-sm font-medium hover:text-accent transition-colors">About</a>
-                    <button id="theme-toggle" class="p-2 text-neutral-600 dark:text-neutral-400 hover:text-accent dark:hover:text-accent transition-colors" aria-label="Toggle theme">
-                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-                    </button>
-                    <a href="#contact" class="text-sm font-medium bg-accent text-white px-5 py-2.5 rounded-full hover:bg-accent-light transition-colors shadow-sm">Let's talk</a>
+                <a href="#contact" class="btn btn-outline">Get in touch</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">Projects delivered</div>
                 </div>
-
-                <div class="flex items-center gap-3 md:hidden">
-                    <button id="theme-toggle-mobile" class="p-2 text-neutral-600 dark:text-neutral-400">
-                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-                        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-                    </button>
-                    <button id="menu-btn" class="p-2">
-                        <i data-lucide="menu" class="w-5 h-5"></i>
-                    </button>
+                <div>
+                    <div class="stat-num">30+</div>
+                    <div class="stat-label">Happy clients</div>
+                </div>
+                <div>
+                    <div class="stat-num">8</div>
+                    <div class="stat-label">Countries</div>
                 </div>
             </div>
         </div>
-    </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white dark:bg-neutral-900 transform translate-x-full transition-transform duration-300 md:hidden">
-        <div class="flex flex-col h-full p-8">
-            <div class="flex justify-end">
-                <button onclick="toggleMenu()" class="p-2">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
+        <div class="hero-visual">
+            <div class="hero-card hc-main">
+                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop" alt="Design workspace">
+                <div class="hc-overlay"></div>
             </div>
-            <div class="flex flex-col items-center justify-center flex-1 space-y-8 text-2xl">
-                <a href="#work" onclick="toggleMenu()" class="hover:text-accent">Work</a>
-                <a href="#services" onclick="toggleMenu()" class="hover:text-accent">Services</a>
-                <a href="#about" onclick="toggleMenu()" class="hover:text-accent">About</a>
-                <a href="#contact" onclick="toggleMenu()" class="bg-accent text-white px-8 py-3 rounded-full">Let's talk</a>
+            <div class="hero-card hc-secondary">
+                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1200&auto=format&fit=crop" alt="Creative process">
+            </div>
+            <div class="float-tag ft-1">
+                <span class="ft-dot" style="background:var(--accent)"></span>
+                Brand Identity
+            </div>
+            <div class="float-tag ft-2">
+                <span class="ft-dot" style="background:var(--accent2)"></span>
+                UI/UX Design
             </div>
         </div>
     </div>
 
-    <!-- Hero Section - asymmetric, bold -->
-    <section id="hero" class="relative min-h-screen pt-32 overflow-hidden">
-        <div class="absolute inset-0 diagonal-lines opacity-30"></div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-                <!-- Left content -->
-                <div class="relative z-10" data-aos="fade-up">
-                    <span class="text-accent font-mono text-sm mb-4 block">GRAPHIC DESIGNER</span>
-                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9] tracking-tight">
-                        <span class="block">Visual</span>
-                        <span class="block text-accent">Storyteller</span>
-                        <span class="block text-2xl md:text-3xl font-normal text-secondary mt-6 max-w-md">
-                            Crafting brand identities that resonate and convert.
-                        </span>
-                    </h1>
-                    
-                    <div class="flex gap-4 mt-10">
-                        <a href="#work" class="group flex items-center gap-2 px-8 py-4 bg-primary dark:bg-white text-white dark:text-primary rounded-full text-sm font-medium hover:bg-accent hover:text-white transition-all">
-                            View work
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
-                        </a>
-                        <a href="#contact" class="px-8 py-4 border border-neutral-300 dark:border-neutral-700 rounded-full text-sm font-medium hover:border-accent hover:text-accent transition">
-                            Contact
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Right side - dynamic image composition -->
-                <div class="relative h-[500px] lg:h-[600px]">
-                    <!-- Main floating image -->
-                    <div class="absolute top-0 right-0 w-4/5 h-96 rounded-3xl overflow-hidden shadow-2xl animate-float" data-aos="fade-left">
-                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop" 
-                             alt="Design workspace"
-                             class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-accent/30 via-transparent to-transparent mix-blend-overlay"></div>
-                    </div>
-                    
-                    <!-- Second image - overlapping -->
-                    <div class="absolute bottom-0 left-0 w-3/4 h-72 rounded-3xl overflow-hidden border-4 border-white dark:border-neutral-800 shadow-xl rotate-[-3deg] z-20" data-aos="fade-right" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1200&auto=format&fit=crop" 
-                             alt="Creative process"
-                             class="w-full h-full object-cover">
-                    </div>
-                    
-                    <!-- Accent shape -->
-                    <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-mint/20 rounded-full blur-3xl"></div>
+    <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee-wrap">
+    <div class="marquee-track">
+        <span class="marquee-item">Brand Identity <span class="sep">✦</span></span>
+        <span class="marquee-item">Visual Strategy <span class="sep">✦</span></span>
+        <span class="marquee-item">UI/UX Design <span class="sep">✦</span></span>
+        <span class="marquee-item">Motion Graphics <span class="sep">✦</span></span>
+        <span class="marquee-item">Print Design <span class="sep">✦</span></span>
+        <span class="marquee-item">Packaging Design <span class="sep">✦</span></span>
+        <span class="marquee-item">Brand Identity <span class="sep">✦</span></span>
+        <span class="marquee-item">Visual Strategy <span class="sep">✦</span></span>
+        <span class="marquee-item">UI/UX Design <span class="sep">✦</span></span>
+        <span class="marquee-item">Motion Graphics <span class="sep">✦</span></span>
+        <span class="marquee-item">Print Design <span class="sep">✦</span></span>
+        <span class="marquee-item">Packaging Design <span class="sep">✦</span></span>
+    </div>
+</div>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="services">
+    <div class="section-inner">
+        <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:0;">
+            <div class="reveal">
+                <span class="section-label">What I do</span>
+                <h2 class="section-title">Design across every<br><em>dimension</em></h2>
+            </div>
+            <p style="color:var(--text-dim); max-width:380px; font-size:0.95rem; line-height:1.75;" class="reveal reveal-delay-2">
+                Strategic, purposeful design that solves real problems and creates lasting impressions.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" style="--card-accent: var(--accent);">
+                <div class="service-num">01</div>
+                <div class="service-icon">🎨</div>
+                <div class="service-name">Brand Identity</div>
+                <p class="service-desc">Distinctive visual systems — logos, color, typography and guidelines — that capture your brand's core and scale consistently.</p>
+                <div class="service-tags">
+                    <span class="tag">Logo Design</span>
+                    <span class="tag">Style Guide</span>
+                    <span class="tag">Brand Strategy</span>
                 </div>
             </div>
-            
-            <!-- Scroll indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden lg:block">
-                <a href="#work" class="flex flex-col items-center gap-2 text-xs text-secondary">
-                    <span>Scroll</span>
-                    <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+            <div class="service-card" style="--card-accent: var(--accent2);">
+                <div class="service-num">02</div>
+                <div class="service-icon">🖥️</div>
+                <div class="service-name">UI/UX Design</div>
+                <p class="service-desc">Intuitive digital experiences designed for real users. From wireframes to pixel-perfect interfaces that convert and delight.</p>
+                <div class="service-tags">
+                    <span class="tag">Web Design</span>
+                    <span class="tag">App Design</span>
+                    <span class="tag">Prototyping</span>
+                </div>
+            </div>
+            <div class="service-card" style="--card-accent: var(--accent3);">
+                <div class="service-num">03</div>
+                <div class="service-icon">📐</div>
+                <div class="service-name">Visual Design</div>
+                <p class="service-desc">Compelling print and digital collateral — social media, presentations, packaging — that makes your brand unforgettable.</p>
+                <div class="service-tags">
+                    <span class="tag">Social Media</span>
+                    <span class="tag">Print</span>
+                    <span class="tag">Packaging</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ WORK ═══════════ -->
+<section id="work">
+    <div class="section-inner">
+        <div class="work-header">
+            <div class="reveal">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Selected <em>work</em></h2>
+            </div>
+            <a href="#" class="btn btn-outline reveal reveal-delay-2">View all projects ↗</a>
+        </div>
+
+        <!-- Featured -->
+        <div class="project-featured reveal">
+            <div class="project-img">
+                <img src="https://images.unsplash.com/photo-1635405074683-96d6921a2a68?q=80&w=1200&auto=format&fit=crop" alt="NovaTech">
+                <div class="img-overlay"></div>
+            </div>
+            <div class="project-info">
+                <div class="project-cat">Brand Identity · 2024</div>
+                <h3 class="project-name">NovaTech AI</h3>
+                <p class="project-desc">Complete rebrand for a fast-growing AI startup — balancing cutting-edge technology with human warmth. Delivered logo, full visual system, and web design.</p>
+                <div class="project-tags">
+                    <span class="tag">Strategy</span>
+                    <span class="tag">Visual Identity</span>
+                    <span class="tag">Web Design</span>
+                    <span class="tag">Motion</span>
+                </div>
+                <a href="#" class="project-link">
+                    View case study
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
             </div>
         </div>
-    </section>
 
-    <!-- Services -->
-    <section id="services" class="py-32 px-6 lg:px-8 bg-white dark:bg-neutral-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
-                <div data-aos="fade-right">
-                    <span class="text-accent font-mono text-sm mb-3 block">EXPERTISE</span>
-                    <h2 class="text-4xl md:text-5xl font-heading font-bold max-w-xl">Design that works across every touchpoint</h2>
+        <!-- 2-col grid -->
+        <div class="projects-grid">
+            <div class="project-card reveal reveal-delay-1">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="Bloom">
+                    <div class="img-overlay" style="background:linear-gradient(135deg,rgba(255,107,107,0.3) 0%,transparent 60%)"></div>
                 </div>
-                <p class="text-secondary max-w-md mt-4 md:mt-0" data-aos="fade-left">
-                    Strategic creative solutions tailored to your brand's unique challenges and opportunities.
-                </p>
+                <div class="project-info">
+                    <div class="project-cat">UI/UX · 2024</div>
+                    <h3 class="project-name" style="font-size:clamp(22px,2.5vw,32px)">Bloom Skincare</h3>
+                    <p class="project-desc">E-commerce redesign — +40% conversions through smarter user flows and elevated visual storytelling.</p>
+                    <div class="project-tags">
+                        <span class="tag">UX Research</span>
+                        <span class="tag">UI Design</span>
+                    </div>
+                    <a href="#" class="project-link" style="margin-top:12px">Explore ↗</a>
+                </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group p-8 bg-neutral-50 dark:bg-neutral-800/30 rounded-2xl border border-neutral-200/50 dark:border-neutral-700/50 hover:border-accent transition-all" data-aos="fade-up">
-                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all">
-                        <i data-lucide="brush" class="w-6 h-6 text-accent group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-heading font-semibold mb-3">Brand Identity</h3>
-                    <p class="text-secondary text-sm leading-relaxed">Distinctive visual systems that capture your brand's essence.</p>
+
+            <div class="project-card reveal reveal-delay-2">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop" alt="Fitness app">
+                    <div class="img-overlay" style="background:linear-gradient(135deg,rgba(200,240,120,0.25) 0%,transparent 60%)"></div>
                 </div>
-                <div class="group p-8 bg-neutral-50 dark:bg-neutral-800/30 rounded-2xl border border-neutral-200/50 dark:border-neutral-700/50 hover:border-mint transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-mint/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-mint group-hover:text-white transition-all">
-                        <i data-lucide="layout" class="w-6 h-6 text-mint group-hover:text-white"></i>
+                <div class="project-info">
+                    <div class="project-cat">Mobile App · 2023</div>
+                    <h3 class="project-name" style="font-size:clamp(22px,2.5vw,32px)">FitFlow Training</h3>
+                    <p class="project-desc">Comprehensive UX/UI for a fitness platform. Personalized training plans with a clean, motivating interface.</p>
+                    <div class="project-tags">
+                        <span class="tag">App Design</span>
+                        <span class="tag">Prototyping</span>
                     </div>
-                    <h3 class="text-2xl font-heading font-semibold mb-3">UI/UX Design</h3>
-                    <p class="text-secondary text-sm leading-relaxed">Intuitive digital experiences that delight users.</p>
-                </div>
-                <div class="group p-8 bg-neutral-50 dark:bg-neutral-800/30 rounded-2xl border border-neutral-200/50 dark:border-neutral-700/50 hover:border-accent transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all">
-                        <i data-lucide="package" class="w-6 h-6 text-accent group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-heading font-semibold mb-3">Visual Design</h3>
-                    <p class="text-secondary text-sm leading-relaxed">Compelling print and digital collateral.</p>
+                    <a href="#" class="project-link" style="margin-top:12px">Explore ↗</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Work - asymmetric gallery -->
-    <section id="work" class="py-32 px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-800/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-accent font-mono text-sm mb-3 block">PORTFOLIO</span>
-                <h2 class="text-4xl md:text-5xl font-heading font-bold">Selected projects</h2>
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="about-imgs reveal">
+                <div class="about-img-main">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Ritivik">
+                </div>
+                <div class="about-img-sec">
+                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=1200&auto=format&fit=crop" alt="Creative workspace">
+                </div>
+                <div class="about-monogram">RK</div>
             </div>
-            
-            <!-- Project 1 -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center mb-32" data-aos="fade-up">
-                <div class="order-2 lg:order-1">
-                    <span class="text-xs font-mono text-accent mb-2 block">BRAND IDENTITY</span>
-                    <h3 class="text-3xl md:text-4xl font-heading font-bold mb-4">NovaTech AI</h3>
-                    <p class="text-secondary mb-6 leading-relaxed">Complete rebrand for an AI startup, balancing cutting-edge technology with human approachability.</p>
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full">Strategy</span>
-                        <span class="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full">Visual Identity</span>
-                        <span class="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full">Web Design</span>
+
+            <div class="about-content reveal reveal-delay-2">
+                <span class="section-label">About me</span>
+                <h2 class="section-title" style="margin-bottom:24px">Design with purpose,<br><em>backed by</em> strategy</h2>
+
+                <p class="about-text">I'm Ritivik — a graphic designer with a CS background, merging technical precision with creative vision. Since 2019, I've helped brands across 8 countries tell their stories through compelling visuals.</p>
+                <p class="about-text">Currently pursuing B.Tech at Bihar University of Technology. I believe great design is both beautiful and functional — every element earns its place.</p>
+
+                <div class="about-stats">
+                    <div>
+                        <div class="stat-num">50+</div>
+                        <div class="stat-label">Projects</div>
                     </div>
-                    <a href="#" class="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition">
-                        View case study <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <div>
+                        <div class="stat-num">30+</div>
+                        <div class="stat-label">Clients</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">8</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+
+                <div class="avail-badge"><span class="badge-dot"></span>Open to new projects</div>
+
+                <div class="tools-list">
+                    <span class="tool-chip"><span class="tool-chip-dot"></span>Figma</span>
+                    <span class="tool-chip"><span class="tool-chip-dot"></span>Adobe Illustrator</span>
+                    <span class="tool-chip"><span class="tool-chip-dot"></span>Photoshop</span>
+                    <span class="tool-chip"><span class="tool-chip-dot"></span>After Effects</span>
+                    <span class="tool-chip"><span class="tool-chip-dot"></span>Premiere Pro</span>
+                    <span class="tool-chip"><span class="tool-chip-dot"></span>Blender</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section id="process">
+    <div class="section-inner">
+        <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 0;">
+            <span class="section-label">My process</span>
+            <h2 class="section-title">From brief to<br><em>brilliant</em></h2>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-step reveal">
+                <div class="proc-num">01</div>
+                <div class="proc-icon">🔍</div>
+                <div class="proc-title">Discovery</div>
+                <p class="proc-desc">Deep dive into your goals, audience, competitive landscape and what makes your brand unique.</p>
+            </div>
+            <div class="process-step reveal reveal-delay-1">
+                <div class="proc-num">02</div>
+                <div class="proc-icon">🧭</div>
+                <div class="proc-title">Strategy</div>
+                <p class="proc-desc">Defining creative direction, messaging hierarchy, and a visual language that aligns with objectives.</p>
+            </div>
+            <div class="process-step reveal reveal-delay-2">
+                <div class="proc-num">03</div>
+                <div class="proc-icon">✏️</div>
+                <div class="proc-title">Creation</div>
+                <p class="proc-desc">Iterative design with regular feedback loops. No surprises — just collaborative refinement.</p>
+            </div>
+            <div class="process-step reveal reveal-delay-3">
+                <div class="proc-num">04</div>
+                <div class="proc-icon">🚀</div>
+                <div class="proc-title">Delivery</div>
+                <p class="proc-desc">Polished final assets, brand guidelines, and ongoing support for seamless implementation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact">
+    <div class="section-inner">
+        <div class="contact-grid">
+            <div class="reveal">
+                <span class="section-label">Get in touch</span>
+                <h2 class="contact-big">Let's build<br>something <em>great</em><br>together.</h2>
+
+                <div class="contact-links">
+                    <a href="mailto:rmks.org@gmail.com" class="contact-link">
+                        <div class="contact-link-icon">✉️</div>
+                        <div class="contact-link-text">
+                            <strong>Email</strong>
+                            <span>rmks.org@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="tel:+917061978295" class="contact-link">
+                        <div class="contact-link-icon">📞</div>
+                        <div class="contact-link-text">
+                            <strong>Phone</strong>
+                            <span>+91 70619 78295</span>
+                        </div>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <div class="contact-link-icon">📍</div>
+                        <div class="contact-link-text">
+                            <strong>Location</strong>
+                            <span>Patna, Bihar, India</span>
+                        </div>
                     </a>
                 </div>
-                <div class="order-1 lg:order-2 relative">
-                    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1635405074683-96d6921a2a68?q=80&w=1200&auto=format&fit=crop" 
-                             alt="NovaTech brand"
-                             class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-mint/20 rounded-full blur-2xl -z-10"></div>
-                </div>
             </div>
-            
-            <!-- Project 2 -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center mb-32" data-aos="fade-up">
-                <div class="relative">
-                    <div class="aspect-square rounded-2xl overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" 
-                             alt="Bloom skincare"
-                             class="w-full h-full object-cover hover:scale-105 transition duration-700">
+
+            <div class="form-card reveal reveal-delay-2">
+                <div class="form-title">Send a message</div>
+                <form id="cf">
+                    <div class="form-row">
+                        <div class="field">
+                            <label>Name</label>
+                            <input type="text" placeholder="Rahul Kumar" required>
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" placeholder="hello@brand.com" required>
+                        </div>
                     </div>
-                    <div class="absolute -top-6 -right-6 w-40 h-40 bg-accent/20 rounded-full blur-2xl -z-10"></div>
-                </div>
-                <div>
-                    <span class="text-xs font-mono text-accent mb-2 block">UI/UX DESIGN</span>
-                    <h3 class="text-3xl md:text-4xl font-heading font-bold mb-4">Bloom Skincare</h3>
-                    <p class="text-secondary mb-6 leading-relaxed">E-commerce redesign that increased conversions by 40% through improved user flow.</p>
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full">UX Research</span>
-                        <span class="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full">UI Design</span>
-                        <span class="px-3 py-1 bg-neutral-200 dark:bg-neutral-800 text-xs rounded-full">Prototyping</span>
+                    <div class="field">
+                        <label>Company</label>
+                        <input type="text" placeholder="Your company (optional)">
                     </div>
-                    <a href="#" class="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition">
-                        View case study <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Project 3 - full width -->
-            <div class="relative rounded-3xl overflow-hidden h-[500px] group" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2000&auto=format&fit=crop" 
-                     alt="Fitness app"
-                     class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-12">
-                    <div class="text-white max-w-xl">
-                        <span class="text-xs font-mono text-accent-light mb-2 block">MOBILE APP</span>
-                        <h3 class="text-3xl md:text-4xl font-heading font-bold mb-3">Fitness Training App</h3>
-                        <p class="text-white/80 mb-5">Comprehensive UX/UI design for a fitness platform with personalized training plans.</p>
-                        <a href="#" class="inline-flex items-center gap-2 text-white border-b border-white/30 pb-0.5 hover:border-white transition">
-                            Explore project <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                    <div class="field">
+                        <label>Service</label>
+                        <select>
+                            <option value="">Select a service...</option>
+                            <option>Brand Identity</option>
+                            <option>UI/UX Design</option>
+                            <option>Visual Design</option>
+                            <option>Other</option>
+                        </select>
                     </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-16">
-                <a href="https://drive.google.com" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-accent border border-accent/30 px-6 py-3 rounded-full hover:bg-accent hover:text-white transition">
-                    View full archive
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
+                    <div class="field">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Send message
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </form>
+                <div class="form-success" id="fs">🎉 Thanks! I'll get back to you within 24 hours.</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About -->
-    <section id="about" class="py-32 px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
-                    <span class="text-accent font-mono text-sm mb-3 block">ABOUT</span>
-                    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8">Design with purpose, backed by strategy</h2>
-                    
-                    <div class="space-y-6 text-secondary">
-                        <p class="leading-relaxed">I'm Ritivik — a graphic designer with a background in Computer Science, merging technical precision with creative vision. Since 2019, I've helped brands across 8 countries tell their stories through compelling visuals.</p>
-                        <p class="leading-relaxed">Currently pursuing B.Tech at Bihar University of Technology, I believe great design is both beautiful and functional — every element should serve a purpose.</p>
-                    </div>
-                    
-                    <div class="flex gap-8 mt-10">
-                        <div>
-                            <div class="text-3xl font-heading font-bold">50+</div>
-                            <div class="text-sm text-secondary">Projects</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-heading font-bold">30+</div>
-                            <div class="text-sm text-secondary">Clients</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-heading font-bold">8</div>
-                            <div class="text-sm text-secondary">Countries</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="relative grid grid-cols-2 gap-4" data-aos="fade-left">
-                    <div class="space-y-4">
-                        <div class="aspect-square rounded-2xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" 
-                                 alt="Rahul portrait"
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-accent/10 flex items-center justify-center">
-                            <span class="text-7xl font-heading font-bold text-accent/30">RK</span>
-                        </div>
-                    </div>
-                    <div class="pt-12">
-                        <div class="aspect-[3/4] rounded-2xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=1200&auto=format&fit=crop" 
-                                 alt="Creative workspace"
-                                 class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    
-                    <!-- floating badge -->
-                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-neutral-800 px-6 py-3 rounded-full shadow-lg flex items-center gap-2">
-                        <span class="w-2 h-2 bg-accent rounded-full"></span>
-                        <span class="text-sm font-medium">Available for work</span>
-                    </div>
-                </div>
-            </div>
+<!-- footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-copy">© 2025 Ritivik — Graphic Designer</div>
+        <div class="footer-links">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
-    </section>
+        <a href="#hero" class="back-top">↑ Top</a>
+    </div>
+</footer>
 
-    <!-- Process -->
-    <section id="process" class="py-32 px-6 lg:px-8 bg-mint/5 dark:bg-neutral-800/20">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-accent font-mono text-sm mb-3 block">PROCESS</span>
-                <h2 class="text-4xl md:text-5xl font-heading font-bold">How I work</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="relative bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-sm" data-aos="fade-up">
-                    <div class="text-6xl font-heading font-bold text-accent/20 mb-4">01</div>
-                    <h3 class="text-xl font-heading font-semibold mb-3">Discovery</h3>
-                    <p class="text-sm text-secondary">Understanding your goals, audience, and market through in-depth research.</p>
-                </div>
-                <div class="relative bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-sm mt-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-6xl font-heading font-bold text-accent/20 mb-4">02</div>
-                    <h3 class="text-xl font-heading font-semibold mb-3">Strategy</h3>
-                    <p class="text-sm text-secondary">Defining direction, messaging, and visual approach aligned with objectives.</p>
-                </div>
-                <div class="relative bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-6xl font-heading font-bold text-accent/20 mb-4">03</div>
-                    <h3 class="text-xl font-heading font-semibold mb-3">Creation</h3>
-                    <p class="text-sm text-secondary">Iterative design and prototyping with regular feedback loops.</p>
-                </div>
-                <div class="relative bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-sm mt-8" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-6xl font-heading font-bold text-accent/20 mb-4">04</div>
-                    <h3 class="text-xl font-heading font-semibold mb-3">Delivery</h3>
-                    <p class="text-sm text-secondary">Final assets, guidelines, and support for successful implementation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+    // cursor
+    const cur = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+        cur.style.left = e.clientX + 'px';
+        cur.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a,button').forEach(el => {
+        el.addEventListener('mouseenter', () => cur.classList.add('big'));
+        el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+    });
 
-    <!-- Contact - with updated LinkedIn link -->
-    <section id="contact" class="py-32 px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div data-aos="fade-right">
-                    <span class="text-accent font-mono text-sm mb-3 block">CONTACT</span>
-                    <h2 class="text-5xl md:text-6xl font-heading font-bold leading-tight mb-8">
-                        Let's create<br>something<span class="text-accent"> remarkable</span>
-                    </h2>
-                    <p class="text-xl text-secondary mb-12">Have a project in mind? I'd love to hear about it.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
-                            </div>
-                            <a href="mailto:rmks.org@gmail.com" class="text-lg hover:text-accent transition">rmks.org@gmail.com</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
-                            </div>
-                            <a href="tel:+917061978295" class="text-lg hover:text-accent transition">+91 7061978295</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
-                            </div>
-                            <span class="text-lg">Patna, Bihar, India</span>
-                        </div>
-                    </div>
-                    
-                    <!-- <!-- Social links with updated LinkedIn 
-                    <div class="flex gap-4 mt-12">
-                        <a href="https://www.linkedin.com/in/rahul-ydv00/" target="_blank" class="w-12 h-12 border border-neutral-300 dark:border-neutral-700 rounded-full flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition" aria-label="LinkedIn">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 border border-neutral-300 dark:border-neutral-700 rounded-full flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition" aria-label="Instagram">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 border border-neutral-300 dark:border-neutral-700 rounded-full flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition" aria-label="Dribbble">
-                            <i data-lucide="dribbble" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div> -->
-                
-                <div class="relative" data-aos="fade-left">
-                    <div class="bg-white dark:bg-neutral-800 p-8 rounded-3xl shadow-xl">
-                        <h3 class="text-2xl font-heading font-semibold mb-6">Send a message</h3>
-                        <form id="contact-form" class="space-y-5">
-                            <input type="text" name="Name" placeholder="Your name *" required class="w-full px-5 py-4 bg-neutral-100 dark:bg-neutral-700/50 border-0 rounded-xl focus:ring-2 focus:ring-accent">
-                            <input type="email" name="Email" placeholder="Email address *" required class="w-full px-5 py-4 bg-neutral-100 dark:bg-neutral-700/50 border-0 rounded-xl focus:ring-2 focus:ring-accent">
-                            <input type="text" name="Company" placeholder="Company (optional)" class="w-full px-5 py-4 bg-neutral-100 dark:bg-neutral-700/50 border-0 rounded-xl">
-                            <textarea name="Message" placeholder="Tell me about your project *" rows="5" required class="w-full px-5 py-4 bg-neutral-100 dark:bg-neutral-700/50 border-0 rounded-xl resize-none"></textarea>
-                            <button type="submit" class="w-full py-4 bg-accent text-white rounded-xl font-medium hover:bg-accent-light transition shadow-md flex items-center justify-center gap-2">
-                                Send message
-                                <i data-lucide="send" class="w-4 h-4"></i>
-                            </button>
-                        </form>
-                        <div id="form-message" class="mt-4 text-sm text-center p-3 rounded-lg hidden"></div>
-                    </div>
-                    <div class="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    // mobile menu
+    const ham = document.getElementById('ham-btn');
+    const mNav = document.getElementById('mobile-nav');
+    const closeBtn = document.getElementById('close-menu');
+    ham.addEventListener('click', () => mNav.classList.add('open'));
+    closeBtn.addEventListener('click', () => mNav.classList.remove('open'));
+    document.querySelectorAll('.mob-link').forEach(l => {
+        l.addEventListener('click', () => mNav.classList.remove('open'));
+    });
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 lg:px-8 border-t border-neutral-200 dark:border-neutral-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <div class="text-secondary">© 2025 Ritivik — Graphic Designer</div>
-            <div class="flex gap-6">
-                <a href="#work" class="text-secondary hover:text-accent transition">Work</a>
-                <a href="#services" class="text-secondary hover:text-accent transition">Services</a>
-                <a href="#contact" class="text-secondary hover:text-accent transition">Contact</a>
-            </div>
-            <a href="#hero" class="flex items-center gap-1 text-secondary hover:text-accent transition">
-                Back to top <i data-lucide="arrow-up" class="w-3 h-3"></i>
-            </a>
-        </div>
-    </footer>
-
-    <script>
-        AOS.init({ duration: 800, once: true });
-        lucide.createIcons();
-
-        // Minimalist cursor ring
-        const ring = document.getElementById('cursorRing');
-        if (ring) {
-            document.addEventListener('mousemove', (e) => {
-                ring.style.left = e.clientX + 'px';
-                ring.style.top = e.clientY + 'px';
-            });
-            
-            // Scale effect on click
-            document.addEventListener('mousedown', () => {
-                ring.style.transform = 'translate(-50%, -50%) scale(0.8)';
-                ring.style.opacity = '1';
-            });
-            
-            document.addEventListener('mouseup', () => {
-                ring.style.transform = 'translate(-50%, -50%) scale(1)';
-                ring.style.opacity = '0.7';
-            });
-            
-            // Hide ring when mouse leaves window
-            document.addEventListener('mouseleave', () => {
-                ring.style.opacity = '0';
-            });
-            
-            document.addEventListener('mouseenter', () => {
-                ring.style.opacity = '0.7';
-            });
-        }
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-            lucide.createIcons(); // Refresh icons for theme toggle
-        }
-        
-        themeToggle?.addEventListener('click', toggleTheme);
-        themeToggleMobile?.addEventListener('click', toggleTheme);
-        
-        // Initialize theme
-        (function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.documentElement.classList.add('dark');
-            }
-        })();
-
-        // Mobile menu
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        window.toggleMenu = () => {
-            mobileMenu.classList.toggle('translate-x-full');
-            lucide.createIcons();
-        };
-        
-        menuBtn?.addEventListener('click', toggleMenu);
-
-        // Form handling (simulated)
-        const form = document.getElementById('contact-form');
-        const formMsg = document.getElementById('form-message');
-        
-        form?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
-            btn.disabled = true;
-            btn.innerHTML = 'Sending...';
-            
-            // Simulate form submission
-            setTimeout(() => {
-                formMsg.textContent = 'Thanks for reaching out! I\'ll respond within 24 hours.';
-                formMsg.className = 'mt-4 text-sm text-green-600 bg-green-50 dark:bg-green-900/20 text-center p-3 rounded-lg';
-                formMsg.classList.remove('hidden');
-                form.reset();
-                btn.disabled = false;
-                btn.innerHTML = 'Send message <i data-lucide="send" class="w-4 h-4"></i>';
-                lucide.createIcons();
-                setTimeout(() => formMsg.classList.add('hidden'), 7000);
-            }, 1000);
+    // smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         });
+    });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                const href = anchor.getAttribute('href');
-                if (href === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-            });
-        });
-    </script>
+    // reveal on scroll
+    const revEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revEls.forEach(el => obs.observe(el));
+
+    // form
+    const form = document.getElementById('cf');
+    const fs = document.getElementById('fs');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = form.querySelector('.submit-btn');
+        btn.textContent = 'Sending…'; btn.disabled = true;
+        setTimeout(() => {
+            fs.style.display = 'block';
+            form.reset();
+            btn.innerHTML = 'Send message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+            btn.disabled = false;
+            setTimeout(() => fs.style.display = 'none', 6000);
+        }, 900);
+    });
+</script>
 </body>
 </html>
